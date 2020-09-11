@@ -7,7 +7,7 @@
   font-family: 'Lato', sans-serif;
 }
 
-.timer,
+
 .viewprogress,
 .project
 {
@@ -15,5 +15,69 @@
   height: 90vh;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2rem;
+}
+
+.timer {
+  display:flex;
+  flex-direction: column;
+  height:100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size:5rem;
+  font-weight: 400;
+
+}
+h4{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+
+}
+.break-interval-container, .session-interval-container{
+  display: flex;
+  align-items: center;
+  margin: 0 40px
+  
+}
+/* 
+.session-interval-container{
+  display: flex;
+  align-items: center;
+
+} */
+
+.break-session-container{
+  display:flex;
+  margin-top:15px
+}
+
+.break-interval-text,.session-interval-text, .timer-text{
+  font-size: 2rem;
+  margin: 10px 10px;
+}
+
+.session-container{
+  border: 3px solid pink;
+  border-radius: 10px;
+  margin-top: 40px;
+  text-align: center;  
+}
+
+.timer-action{
+  margin-top:20px;
+  text-align: center;
+}
+button{
+  padding: 5px 12px;
+  margin: 0 10px;
+  height: 25px;
+  background-color: #263646;
+  border:none;
+  outline:none;
+  cursor:pointer;
+  color:#eee;
 }
