@@ -17,6 +17,9 @@ class Timer extends Component {
         this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this)
         this.onIncreaseSessionLength = this.onIncreaseSessionLength.bind(this)
         this.onDecreaseSessionLength = this.onDecreaseSessionLength.bind(this)
+        this.onToggleMode = this.onToggleMode.bind(this)
+        this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this)
+        this.onResetTimer = this.onResetTimer.bind(this)
 
     }
 
@@ -52,6 +55,35 @@ class Timer extends Component {
             }
         })
     }
+
+    onUpdateTimerMinute() {
+        this.setState(prevState => {
+            return {
+                timerMinute: prevState.timerMinute - 1
+            }
+        })
+    }
+
+    onResetTimer(){
+        this.setState({
+            timerMinute : this.state.sessionLength
+        })
+    }
+
+    // Function to manage switch between break and session
+    onToggleMode(isSession) {
+        if (isSession) {
+            this.setState({
+                timerMinute: this.state.sessionLength
+            })
+        }
+        else {
+            this.setState({
+                timerMinute: this.state.breakLength
+            })
+        }
+
+    }
     render() {
         return (
             <div className="timer">
@@ -68,7 +100,12 @@ class Timer extends Component {
                         decreaseSession={this.onDecreaseSessionLength} />
                 </div>
                 <div>
-                    <Session timerMinute={this.state.timerMinute} />
+                    <Session
+                        timerMinute={this.state.timerMinute}
+                        breakLength={this.state.breakLength}
+                        updateTimerMinute={this.onUpdateTimerMinute}
+                        toggleInterval={this.onToggleMode}
+                        resetTimer={this.onResetTimer} />
                 </div>
 
             </div>
