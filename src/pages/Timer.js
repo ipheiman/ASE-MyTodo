@@ -11,7 +11,7 @@ class Timer extends Component {
             breakLength: 5,
             sessionLength: 25,
             timerMinute: 25,
-
+            isPlay: false
         }
         this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this)
         this.onDecreaseBreakLength = this.onDecreaseBreakLength.bind(this)
@@ -20,9 +20,11 @@ class Timer extends Component {
         this.onToggleMode = this.onToggleMode.bind(this)
         this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this)
         this.onResetTimer = this.onResetTimer.bind(this)
+        this.onPlayTimer = this.onPlayTimer.bind(this)
 
     }
-
+    // Functions (need to bind)
+    // Increase breaklength by 1
     onIncreaseBreakLength() {
         this.setState(prevState => {
             return {
@@ -30,7 +32,7 @@ class Timer extends Component {
             }
         })
     }
-
+    // Decrease breaklength by 1
     onDecreaseBreakLength() {
         this.setState(prevState => {
             return {
@@ -38,6 +40,8 @@ class Timer extends Component {
             }
         })
     }
+    // Increase Sessionlength by 1
+    // Increase timerMinute by 1
     onIncreaseSessionLength() {
         this.setState(prevState => {
             return {
@@ -46,7 +50,8 @@ class Timer extends Component {
             }
         })
     }
-
+    // Decrease Sessionlength by 1
+    // Decrease timerMinute by 1
     onDecreaseSessionLength() {
         this.setState(prevState => {
             return {
@@ -55,7 +60,7 @@ class Timer extends Component {
             }
         })
     }
-
+    // Decrease timerMinute by 1 (when the countdown is running)
     onUpdateTimerMinute() {
         this.setState(prevState => {
             return {
@@ -63,15 +68,17 @@ class Timer extends Component {
             }
         })
     }
-
+    // Does not need a previous state
+    // Change timerminute to the original session length
     onResetTimer(){
         this.setState({
             timerMinute : this.state.sessionLength
         })
     }
-
     // Function to manage switch between break and session
     onToggleMode(isSession) {
+        // Conditions for setState
+        // Does not need a previous state
         if (isSession) {
             this.setState({
                 timerMinute: this.state.sessionLength
@@ -84,17 +91,27 @@ class Timer extends Component {
         }
 
     }
+
+    onPlayTimer(isPlay){
+        this.setState({
+            isPlay:isPlay
+        })
+    }
     render() {
         return (
             <div className="timer">
                 <h1>Welcome to Timer</h1>
                 <div className="break-session-container">
                     <BreakInterval
+                        // pass props
+                        isPlay={this.state.isPlay}
                         breakInterval={this.state.breakLength}
+                        // pass function
                         increaseBreak={this.onIncreaseBreakLength}
                         decreaseBreak={this.onDecreaseBreakLength}
                     />
                     <SessionInterval
+                        isPlay={this.state.isPlay}
                         sessionInterval={this.state.sessionLength}
                         increaseSession={this.onIncreaseSessionLength}
                         decreaseSession={this.onDecreaseSessionLength} />
@@ -105,7 +122,8 @@ class Timer extends Component {
                         breakLength={this.state.breakLength}
                         updateTimerMinute={this.onUpdateTimerMinute}
                         toggleInterval={this.onToggleMode}
-                        resetTimer={this.onResetTimer} />
+                        resetTimer={this.onResetTimer}
+                        onPlayTimer={this.onPlayTimer} />
                 </div>
 
             </div>

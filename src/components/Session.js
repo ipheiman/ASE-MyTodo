@@ -5,9 +5,10 @@ class Session extends Component {
         super()
 
         this.state = {
-            // By default Session
+            // By default isSession:true
             isSession: true,
             timerSecond: 0,
+            // need intervalId to use setInterval and clearInterval
             intervalId:0
         }
 
@@ -20,6 +21,7 @@ class Session extends Component {
 
     play(){
         let intervalId = setInterval(this.decreaseTimer,1000)
+        this.props.onPlayTimer(true);
         this.setState({
             intervalId : intervalId
         })
@@ -28,11 +30,27 @@ class Session extends Component {
     decreaseTimer(){
         switch(this.state.timerSecond){
             case 0:
-                this.props.updateTimerMinute();
-                this.setState({
-                    timerSecond : 59
+                if (this.props.timerMinute===0){
+                    if (this.state.isSession){
+                        this.setState({
+                            isSession:false
+                        })
+                        this.props.toggleInterval(this.state.isSession);
+                    }
+                    else{
+                        this.setState({
+                            isSession:true
+                        })
+                        this.props.toggleInterval(this.state.isSession);
+                    }
+                }
 
-                })
+                else{
+                    this.props.updateTimerMinute();
+                    this.setState({
+                        timerSecond : 59
+                    })
+                }
                 break;
             default:
                 this.setState(prevState =>{
@@ -46,16 +64,18 @@ class Session extends Component {
 
     stop(){
         clearInterval(this.state.intervalId)
+        this.props.onPlayTimer(false);
         }
 
     reset(){
         this.stop();
+        this.props.onPlayTimer(false);
         this.props.resetTimer();
         this.setState({
             timerSecond:0,
+            isSession:true
         })
     }
-
 
     render() {
         return (
