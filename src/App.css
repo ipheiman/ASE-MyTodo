@@ -2,12 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: "Poppins", sans-serif;
+
 }
 
-
-.viewprogress,
-.project
+/* .project */
+.viewprogress
 {
   /* display: flex; */
   height: 90vh;
@@ -69,7 +70,7 @@ h4{
   margin-top:20px;
   text-align: center;
 }
-button{
+.timer button{
   padding: 5px 12px;
   margin: 0 10px;
   height: 25px;
