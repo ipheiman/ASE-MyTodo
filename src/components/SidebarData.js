@@ -5,8 +5,14 @@ import * as RiIcons from "react-icons/ri"
 
 export const SidebarData = [
     {
+        title: 'Home',
+        path: '/homepage',
+        icon: <BsIcons.BsFillBarChartFill/>,
+        className: 'nav-text'
+    },
+    {
         title: 'Projects',
-        path: '/',
+        path: '/project',
         icon: <AiIcons.AiFillFolder/>,
         className: 'nav-text'
     },
@@ -19,6 +25,12 @@ export const SidebarData = [
     {
         title: 'View Progress',
         path: '/viewprogress',
+        icon: <BsIcons.BsFillBarChartFill/>,
+        className: 'nav-text'
+    },
+    {
+        title: 'Logout',
+        path: '/',
         icon: <BsIcons.BsFillBarChartFill/>,
         className: 'nav-text'
     },

@@ -16,7 +16,10 @@
   justify-content: center;
   font-size: 2rem;
 }
-
+/* .login h1{
+  background-color: pink;
+  margin-top:50px
+} */
 .timer {
   display:flex;
   flex-direction: column;

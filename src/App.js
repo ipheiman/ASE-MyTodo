@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Project from './pages/Project';
 import Timer from './pages/Timer';
 import ViewProgress from './pages/ViewProgress';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Login from './pages/Login'
+import Homepage from './pages/Homepage'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
- return(
-  <BrowserRouter>
-    <Navbar />
-    <Switch>
-      <Route exact path="/" component={Project}/>
-      <Route path="/timer" component={Timer}/>
-      <Route path="/viewprogress" component={ViewProgress}/>
-    </Switch>
+  const [isNavBarHidden, setNavBarHidden] = useState(false)
 
-  </BrowserRouter>
- );
+  return (
+    <div>
+      <BrowserRouter>
+      { (isNavBarHidden) ? null : <Navbar />}
+        <Switch>
+          <Route exact path="/" render={()=> <Login setNavBarHidden={setNavBarHidden}/>} />
+          <Route path="/homepage" render={()=> <Homepage setNavBarHidden={setNavBarHidden}/>} />
+          <Route path="/project" component={Project} />
+          <Route path="/timer" component={Timer} />
+          <Route path="/viewprogress" component={ViewProgress} />
+          <Route exact path="/" />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
