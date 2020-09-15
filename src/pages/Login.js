@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import './Login2.css'
@@ -23,7 +23,7 @@ function Login(props) {
                                 <input className="input100" type="password" name="pass" placeholder="Password" />
                                 <span className="focus-input100"></span>
                             </div>
-                            <div className="flex-sb-m w-full p-t-3 p-b-24">
+                            <div className="flex-sb-m w-full p-t-3">
                                 <div className="contact100-form-checkbox">
                                     {/* id="ckb1" is checkbox */}
                                     <input className="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
@@ -32,15 +32,20 @@ function Login(props) {
                                     </label>
                                 </div>
                                 <div>
-                                    <a className="txt1">
-                                        Forgot?
+                                    <a href="#" className="txt1">
+                                        Forgot Password?
                                     </a>
                                 </div>
                             </div>
                             <div className="container-login100-form-btn m-t-17">
+                                <Link to="/register">
+                                    <a href="#" className="txt1">
+                                    New User? Click here to register!
+                                    </a>
+                                </Link>
                                 <Link to="/homepage">
-                                    {/* className="btn-primary btn-block btn-lg" */}
-                                    <button className="login100-form-btn" >
+                                    {/* className="bn-primary btn-block btn-lg" */}
+                                    <button className="login100-form-btn m-t-17" >
                                         <b>Login</b>
                                     </button>
                                 </Link>
