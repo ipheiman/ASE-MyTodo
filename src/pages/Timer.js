@@ -4,6 +4,7 @@ import SessionInterval from '../components/SessionInterval'
 import Session from '../components/Session'
 import '../App.css';
 class Timer extends Component {
+    
     constructor() {
         super();
         this.state = {
@@ -98,6 +99,7 @@ class Timer extends Component {
         })
     }
     render() {
+        document.body.style = 'background:  #C4DBF6;'; 
         return (
             <div className="timer">
                 <h1>Welcome to Timer</h1>

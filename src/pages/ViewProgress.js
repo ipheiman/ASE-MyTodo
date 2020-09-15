@@ -1,6 +1,7 @@
 import React from 'react'
 
 function ViewProgress() {
+    document.body.style = 'background:  #90CCF4;'; 
     return (
         <div className="viewprogress">
             <h1>

@@ -1,11 +1,13 @@
 import React from 'react'
 
 function Homepage(props) {
+    document.body.style = 'background:  #FBE8A6;'; 
     props.setNavBarHidden(false)
     return (
         <div>
+            <header>
             <h1>Welcome to MyToDo!</h1>
-            <h2>How can I help you Heiman?</h2>
+            </header>
         </div>
     )
 }

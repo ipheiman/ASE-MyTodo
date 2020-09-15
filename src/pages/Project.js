@@ -3,6 +3,7 @@ import '../components/Todo.css'
 import Form from '../components/Form'
 import Todolist from '../components/Todolist'
 function Project(props) {
+    document.body.style = 'background:  #F4976C;'; 
     // default states
     const [inputText, setInputText] = useState("")
     // todos is an Array State

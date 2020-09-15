@@ -1,9 +1,9 @@
-body {
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    color: white;
-    /* font-family: "Poppins", sans-serif; */
+/* body {
+
+    font-family: "Poppins", sans-serif;
     min-height: 100vh;
-  }
+  } */
+
   .project header {
     font-size: 2rem;
   }
@@ -124,7 +124,7 @@ body {
     padding: 1rem;
     background: #ff6f47;
     cursor: pointer;
-    pointer-events: non;
+    pointer-events: none;
   }
   /* Transition */
   /*
