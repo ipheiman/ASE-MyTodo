@@ -12,6 +12,7 @@ function Form(props) {
     }
 
     const submitToDoHandler = (e) => {
+        // e.preventDefault is so that you dont click the button and go to another page
         e.preventDefault()
         props.setTodos([
             // ... means append to previous items

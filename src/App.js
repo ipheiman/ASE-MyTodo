@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Homepage from './pages/Homepage'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
+  // By default, navbarhidden = false
   const [isNavBarHidden, setNavBarHidden] = useState(false)
 
   return (
@@ -20,7 +21,6 @@ function App() {
           <Route path="/project" component={Project} />
           <Route path="/timer" component={Timer} />
           <Route path="/viewprogress" component={ViewProgress} />
-          <Route exact path="/" />
         </Switch>
       </BrowserRouter>
     </div>

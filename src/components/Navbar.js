@@ -28,6 +28,7 @@ function Navbar() {
                     </Link>
 
                 </li>
+
                 {SidebarData.map((item,index)=>{
                     return (
                         <li key={index} className={item.className}>
