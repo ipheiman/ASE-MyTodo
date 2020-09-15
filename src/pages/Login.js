@@ -1,9 +1,76 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import './Login2.css'
+
+// FUNCTIONS
+const validateForm = errors => {
+    // by default valid = true
+    let valid = true;
+    Object.values(errors).forEach(
+        // if we have an error string set valid to false
+        val => val.length > 0 && (valid = false)
+    );
+    return valid;
+};
+const validEmailRegex = RegExp(
+    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+
+
 function Login(props) {
     props.setNavBarHidden(true)
+    const [loginInfo, setLoginInfo] = useState([])
+    
+    // function
+    const LoginInfoHandler = () =>{
+        setLoginInfo([...loginInfo,{
+            fullName: null,
+            email: null,
+            password: null,
+            errors: {
+              fullName: "",
+              email: "",
+              password: ""
+            }
+        }])
+    }
+
+//       // function
+//   handleChange = event => {
+//     event.preventDefault();
+//     // event.target is an array of states where name is key, value is value.
+//     // the event.target captures what the user inputs!
+//     const { name, value } = event.target;
+//     let errors = this.state.errors;
+
+//     switch (name) {
+//       case "fullName":
+//         errors.fullName =
+//           value.length < 5 ? "Full Name must be 5 characters long!" : "";
+//         break;
+//       case "email":
+//         errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
+//         break;
+//       case "password":
+//         errors.password =
+//           value.length < 8 ? "Password must be 8 characters long!" : "";
+//         break;
+//       default:
+//         break;
+//     }
+
+//     this.setState({ errors, [name]: value });
+//   };
+//   handleSubmit = event => {
+//     event.preventDefault();
+//     if (validateForm(this.state.errors)) {
+//       console.info("Valid Form");
+//     } else {
+//       console.error("Invalid Form");
+//     }
+//   };
+
     return (
         <div className="login">
             <div className="limiter">

@@ -3,6 +3,7 @@ import * as AiIcons from "react-icons/ai"
 import * as BsIcons from "react-icons/bs"
 import * as RiIcons from "react-icons/ri"
 import * as BiIcons from "react-icons/bi";
+import * as GiIcons from "react-icons/gi";
 
 export const SidebarData = [
     {
@@ -26,8 +27,14 @@ export const SidebarData = [
     {
         title: 'View Progress',
         path: '/viewprogress',
-        icon: <BsIcons.BsFillBarChartFill/>,
+        icon: <GiIcons.GiStairsGoal/>,
         className: 'nav-text viewprogressbar'
+    },
+    {
+        title: 'Leaderboard',
+        path: '/leaderboard',
+        icon: <BsIcons.BsFillBarChartFill/>,
+        className: 'nav-text leaderboardbar'
     },
     {
         title: 'Logout',

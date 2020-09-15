@@ -6,6 +6,7 @@ import Timer from './pages/Timer';
 import ViewProgress from './pages/ViewProgress';
 import Login from './pages/Login'
 import Homepage from './pages/Homepage'
+import Leaderboard from './pages/Leaderboard'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
   // By default, navbarhidden = false
@@ -21,6 +22,7 @@ function App() {
           <Route path="/project" component={Project} />
           <Route path="/timer" component={Timer} />
           <Route path="/viewprogress" component={ViewProgress} />
+          <Route path="/leaderboard" component={Leaderboard} />
         </Switch>
       </BrowserRouter>
     </div>

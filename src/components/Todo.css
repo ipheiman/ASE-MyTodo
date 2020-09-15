@@ -118,6 +118,7 @@
   /* Arrow */
   .project .select::after {
     content: "\25BC";
+    color:white;
     position: absolute;
     top: 0;
     right: 0;
