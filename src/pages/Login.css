@@ -2,32 +2,6 @@
 
 
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-/* @font-face {
-  font-family: "Poppins", sans-serif;
-  src: url('../fonts/ubuntu/"Poppins", sans-serif.ttf'); 
-}
-
-@font-face {
-  font-family: "Poppins", sans-serif;
-  src: url('../fonts/ubuntu/"Poppins", sans-serif.ttf'); 
-} */
-
-  /* @font-face {
-  font-family: 'FontAwesome';
-  src: url('https://use.fontawesome.com/releases/v5.0.6/css/all.css'); 
-} */
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
-/* * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-} */
-
 body, html {
 	height: 100%;
 	font-family: "Poppins", sans-serif, sans-serif;

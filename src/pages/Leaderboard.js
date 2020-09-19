@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Leaderboard() {
-    document.body.style = 'background:  #90f4ce;'; 
+    document.body.style = 'background:  #ECECEC'; 
     return (
         <div>
             <h1>Welcome to Leaderboard</h1>

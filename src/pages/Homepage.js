@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Homepage(props) {
-    document.body.style = 'background:  #FBE8A6;'; 
+    document.body.style = 'background:  #ECECEC'; 
     props.setNavBarHidden(false)
     return (
         <div>

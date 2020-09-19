@@ -6,7 +6,16 @@
   font-family: "Poppins", sans-serif;
 
 }
+/* icon */
+i {
+  padding-right: 10px;
 
+}
+
+/* homepage */
+.nav-link{
+  padding: 10px !important;
+}
 /* .project */
 .viewprogress
 {

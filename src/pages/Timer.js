@@ -99,7 +99,7 @@ class Timer extends Component {
         })
     }
     render() {
-        document.body.style = 'background:  #C4DBF6;'; 
+        document.body.style = 'background:  #ECECEC;'; 
         return (
             <div className="timer">
                 <h1>Welcome to Timer</h1>
