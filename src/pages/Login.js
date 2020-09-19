@@ -20,7 +20,7 @@ function Login(props) {
                                 <span className="focus-input100"></span>
                             </div>
                             <div className="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                                <input className="input100" type="password" name="pass" placeholder="Password" />
+                                <input className="input100" type="password" name="password" placeholder="Password" />
                                 <span className="focus-input100"></span>
                             </div>
                             <div className="flex-sb-m w-full p-t-3">
