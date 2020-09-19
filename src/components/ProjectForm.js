@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Form(props) {
+function ProjectForm(props) {
     const statusHandler = (e) =>{
         // console.log(e.target.value)
         props.setStatus(e.target.value)
@@ -46,4 +46,4 @@ function Form(props) {
     )
 }
 
-export default Form
+export default ProjectForm

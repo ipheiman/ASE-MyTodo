@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../components/Todo.css'
-import Form from '../components/Form'
+import ProjectForm from '../components/ProjectForm'
 import Todolist from '../components/Todolist'
 function Project(props) {
     document.body.style = 'background:  #ECECEC;'; 
@@ -57,7 +57,7 @@ function Project(props) {
                     Heiman's todolist
                 </h1>
             </header>
-            <Form
+            <ProjectForm
                 todos={todos}
                 setTodos={setTodos}
                 inputText={inputText}
