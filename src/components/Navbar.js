@@ -3,13 +3,13 @@ import * as AiIcons from "react-icons/ai"
 import * as BsIcons from "react-icons/bs"
 import * as RiIcons from "react-icons/ri"
 import * as BiIcons from "react-icons/bi";
-import * as GiIcons from "react-icons/gi";
+import * as FaIcons from "react-icons/fa";
 
 function Navbar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:"#5DA2D5"}}> 
-                <a className="navbar-brand" href="#">MyToDo</a>
+            <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:"#2C6896"}}> 
+                <a className="navbar-brand" style={{paddingLeft:"15px"}}>MyToDo</a>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -26,10 +26,10 @@ function Navbar() {
                             <a className="nav-link" href="/timer"><i><RiIcons.RiTimer2Fill/></i>Timer<span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="/viewprogress"><i><GiIcons.GiStairsGoal/></i>View Progress<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/viewprogress"><i><BsIcons.BsFillBarChartFill/></i>View Progress<span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="/leaderboard"><i><BsIcons.BsFillBarChartFill/></i>Leaderboard<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/leaderboard"><i><FaIcons.FaMedal/></i>Leaderboard<span className="sr-only">(current)</span></a>
                         </li>
                     </ul>
                     <ul className="navbar-nav ml-auto">
