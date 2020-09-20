@@ -7,6 +7,20 @@ body, html {
 	font-family: "Poppins", sans-serif, sans-serif;
 }
 
+/* TICK ICON */
+.formSuccess #tick-icon{
+  padding-left: 50% ;
+  font-size: 5rem;
+  color: #34a751
+}
+
+/* ERROR MESSAGE */
+.form-inputs p {
+  font-size: 0.8rem;
+  color: #f00e0e;
+  margin-bottom: 0.5rem;
+  margin-top:-0.5rem
+}
 /*---------------------------------------------*/
 a {
 	font-family: "Poppins", sans-serif;
@@ -37,7 +51,7 @@ h1,h2,h3,h4,h5,h6 {
 p {
 	font-family: "Poppins", sans-serif;
 	font-size: 14px;
-	line-height: 1.7;
+	/* line-height: 1.7; */
 	color: #666666;
 	margin: 0px;
 }
