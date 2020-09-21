@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FormSignup from './FormSignup';
-import FormSuccess from './FormSuccess';
+import Register from './Register';
+import RegisterSuccess from './RegisterSuccess';
 
-const Form = (props) => {
+const RegistrationForm = (props) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   props.setNavBarHidden(true)
 
@@ -14,13 +14,13 @@ const Form = (props) => {
       <div>
         {/* Conditional Statement, if NOT isSubmitted, show FormSignup. if isSubmitted, show Success */}
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <Register submitForm={submitForm} />
         ) : (
-          <FormSuccess />
+          <RegisterSuccess />
         )}
       </div>
     </>
   );
 };
 
-export default Form;
+export default RegistrationForm;

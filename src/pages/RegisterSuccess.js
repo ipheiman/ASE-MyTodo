@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import '../pages/Login.css'
 import '../pages/Login2.css'
 import { TiTick } from "react-icons/ti";
-const FormSuccess = () => {
+const RegisterSuccess = () => {
   return (
     <div className="formSuccess">
       <div className="limiter">
@@ -29,4 +29,4 @@ const FormSuccess = () => {
   );
 };
 
-export default FormSuccess;
+export default RegisterSuccess;

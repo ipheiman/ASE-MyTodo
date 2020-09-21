@@ -6,9 +6,8 @@ import ViewProgress from './pages/ViewProgress';
 import Login from './pages/Login'
 import Homepage from './pages/Homepage'
 import Leaderboard from './pages/Leaderboard'
-// import Register from './pages/Register'
 import Navbar from './components/Navbar'
-import Form from './components/Form'
+import RegistrationForm from './pages/RegistrationForm'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
   // By default, navbarhidden = false
@@ -19,7 +18,7 @@ function App() {
       { (isNavBarHidden) ? null : <Navbar/>}
         <Switch>
           <Route exact path="/" render={()=> <Login setNavBarHidden={setNavBarHidden}/>} />
-          <Route path="/register" render={()=> <Form setNavBarHidden={setNavBarHidden}/>}  />
+          <Route path="/register" render={()=> <RegistrationForm setNavBarHidden={setNavBarHidden}/>}  />
           <Route path="/homepage" render={()=> <Homepage setNavBarHidden={setNavBarHidden}/>} />
           <Route path="/project" component={Project} />
           <Route path="/timer" component={Timer} />

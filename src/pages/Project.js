@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import '../components/Todo.css'
-import ProjectForm from '../components/ProjectForm'
-import Todolist from '../components/Todolist'
+import '../components/Todo/Todo.css'
+import ProjectForm from '../components/Todo/ProjectForm'
+import Todolist from '../components/Todo/Todolist'
 function Project(props) {
     document.body.style = 'background:  #ECECEC;'; 
     // default states

@@ -1,6 +1,6 @@
 import React from 'react';
-import validate from './validateInfo';
-import useForm from './useForm';
+import validate from '../components/validateInfo';
+import useForm from '../components/useForm';
 import '../pages/Login.css'
 import '../pages/Login2.css'
 
