@@ -81,7 +81,7 @@ class Session extends Component {
         return (
             <div>
                 <div className="session-container">
-                    <h4>{this.state.isSession === true ? "Session" : "Break"}</h4>
+                    <h4 className="p-t-20">{this.state.isSession === true ? "Session" : "Break"}</h4>
                     <span className="timer-text">{this.props.timerMinute}</span>
                     <span className="timer-text">:</span>
                     <span className="timer-text">{this.state.timerSecond === 0 ? "00" :
@@ -89,9 +89,9 @@ class Session extends Component {
                 </div>
 
                 <div className="timer-action">
-                    <button type="button" className="btn btn-primary" onClick={this.play}>Start</button>
-                    <button type="button" className="btn btn-primary" onClick={this.stop}>Stop</button>
-                    <button type="button" className="btn btn-primary" onClick={this.reset}>Reset</button>
+                    <button type="button" className="login100-form-btn m-t-17" onClick={this.play}>Start</button>
+                    <button type="button" className="login100-form-btn m-t-17" onClick={this.stop}>Stop</button>
+                    <button type="button" className="login100-form-btn m-t-17" onClick={this.reset}>Reset</button>
                 </div>
             </div>
         )

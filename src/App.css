@@ -4,7 +4,67 @@
   padding: 0;
   /* font-family: 'Lato', sans-serif; */
   font-family: "Poppins", sans-serif;
+}
+/* CALENDAR */
+.react-calendar {
+  border-radius: 40px !important;
+  background: #b1ddff !important;
+  border: 0 !important;
+}
+/* CLOCK */
+.clock-calendar{
+  margin-top:30px;
+  margin-left:60%
+}
+.clock{
+  margin-bottom:30px;
+  margin-left:70px
+}
 
+.react-clock{
+  width:200px !important;
+  height:200px !important;
+}
+.react-clock__face{
+  border: 3px solid white !important;
+  background-color:white !important
+}
+
+.react-clock__hour-mark__body{
+  width:5px !important;
+  bottom: 90%!important;
+}
+.react-clock__hand__body, .react-clock__hour-hand__body{
+  width:5px !important;
+  /* top:15% !important; */
+  /* bottom:40% !important */
+}
+.react-clock__hour-hand__body{
+  top:22% !important;
+}
+.react-clock__hand__body{
+  bottom:40%!important;
+}
+.react-clock__second-hand__body{
+  width:2px !important;
+}
+.react-clock__second-hand__body:after {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background-color: red;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+.description-input{
+  height:100px !important
+}
+.modal-btn{
+  margin-left: 50%;
 }
 .timer p{
   color: #212529 !important
@@ -74,19 +134,24 @@ h4{
 
 .break-interval-text,.session-interval-text, .timer-text{
   font-size: 2rem;
+  margin: 10px 20px;
+}
+.timer-text{
+  font-size: 2rem;
   margin: 10px 10px;
 }
-
 .session-container{
   border: 3px solid #5DA2D5;
   border-radius: 10px;
   margin-top: 40px;
   text-align: center;  
+  height:130px
 }
 
 .timer-action{
   margin-top:20px;
   text-align: center;
+  display: flex
 }
 /* .timer button{
   padding: 5px 12px;
@@ -103,10 +168,11 @@ button:disabled{
   cursor:not-allowed
 }
 
-.btn{
-  width:80px
+.timer .login100-form-btn{
+  width:100px;
+  height:45px
 }
 
-.timer-action .btn{
-  margin-right: 10px
+.timer-action .login100-form-btn{
+  margin-right: 10px;
 }
