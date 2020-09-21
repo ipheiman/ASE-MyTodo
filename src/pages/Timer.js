@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import BreakInterval from '../Timer/BreakInterval'
-import SessionInterval from '../Timer/SessionInterval'
-import Session from '../Timer/Session'
+import BreakInterval from '../components/Timer/BreakInterval'
+import SessionInterval from '../components/Timer/SessionInterval'
+import Session from '../components/Timer/Session'
 import '../App.css';
 class Timer extends Component {
     
