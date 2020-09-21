@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import './Login2.css'
@@ -32,19 +32,18 @@ function Login(props) {
                                     </label>
                                 </div>
                                 <div>
-                                    <a href="#" className="txt1">
+                                    <span className="txt1">
                                         Forgot Password?
-                                    </a>
+                                    </span>
                                 </div>
                             </div>
                             <div className="container-login100-form-btn m-t-17">
                                 <Link to="/register">
-                                    <a href="#" className="txt1">
+                                    <span className="txt1">
                                     New User? Click here to register!
-                                    </a>
+                                    </span>
                                 </Link>
                                 <Link to="/homepage">
-                                    {/* className="bn-primary btn-block btn-lg" */}
                                     <button className="login100-form-btn m-t-17" >
                                         <b>Login</b>
                                     </button>

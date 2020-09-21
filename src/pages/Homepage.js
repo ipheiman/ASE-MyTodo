@@ -4,7 +4,7 @@ function Homepage(props) {
     document.body.style = 'background:  #ECECEC'; 
     props.setNavBarHidden(false)
     return (
-        <div>
+        <div className="homepage">
             <header>
             <h1>Welcome to MyToDo!</h1>
             </header>

@@ -19,9 +19,9 @@ function SessionInterval(props) {
         <div>
             <h4>Session Length</h4>
             <div className="session-interval-container">
-                <button disabled={props.isPlay === true ? "disabled" : ""} onClick={decreaseCounter}>Down</button>
+                <button type="button" className="btn btn-primary" disabled={props.isPlay === true ? "disabled" : ""} onClick={decreaseCounter}>Down</button>
                 <p className="session-interval-text">{props.sessionInterval}</p>
-                <button disabled={props.isPlay === true ? "disabled" : ""} onClick={increaseCounter}>Up</button>
+                <button type="button" className="btn btn-primary" disabled={props.isPlay === true ? "disabled" : ""} onClick={increaseCounter}>Up</button>
             </div>
         </div>
     )

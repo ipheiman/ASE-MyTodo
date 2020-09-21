@@ -33,10 +33,10 @@ const FormSignup = ({ submitForm }) => {
                   onChange={handleChange}
                 />
               </div>
-                <div className="form-inputs ">
+              <div className="form-inputs ">
                 {errors.username && <p>{errors.username}</p>}
-                </div>
-              
+              </div>
+
               <div className="wrap-input100 validate-input m-b-16">
                 <input
                   className='input100'
@@ -60,9 +60,9 @@ const FormSignup = ({ submitForm }) => {
                   onChange={handleChange}
                 />
               </div>
-                <div className="form-inputs">
+              <div className="form-inputs">
                 {errors.password && <p>{errors.password}</p>}
-                </div>
+              </div>
               <div className="wrap-input100 validate-input m-b-16">
                 <input
                   className='input100'
@@ -78,12 +78,14 @@ const FormSignup = ({ submitForm }) => {
               </div>
               <div className="container-login100-form-btn">
                 <span className="txt1">
-                  Already have an account? Click  <a href='/'>here</a> to login!
-                                </span>
+                  <a className="txt1" href='/'>
+                    Already have an account? Click here to login!
+                  </a>
+                </span>
 
-                  <button type="submit" className="login100-form-btn m-t-17" >
-                    <b>Register</b>
-                  </button>
+                <button type="submit" className="login100-form-btn m-t-17" >
+                  <b>Register</b>
+                </button>
 
               </div>
             </form>

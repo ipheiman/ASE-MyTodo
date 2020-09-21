@@ -9,7 +9,7 @@ class Session extends Component {
             isSession: true,
             timerSecond: 0,
             // need intervalId to use setInterval and clearInterval
-            intervalId:0
+            intervalId: 0
         }
 
         this.play = this.play.bind(this)
@@ -19,61 +19,61 @@ class Session extends Component {
 
     }
 
-    play(){
-        let intervalId = setInterval(this.decreaseTimer,1000)
+    play() {
+        let intervalId = setInterval(this.decreaseTimer, 1000)
         this.props.onPlayTimer(true);
         this.setState({
-            intervalId : intervalId
+            intervalId: intervalId
         })
     }
 
-    decreaseTimer(){
-        switch(this.state.timerSecond){
+    decreaseTimer() {
+        switch (this.state.timerSecond) {
             case 0:
-                if (this.props.timerMinute===0){
-                    if (this.state.isSession){
+                if (this.props.timerMinute === 0) {
+                    if (this.state.isSession) {
                         this.setState({
-                            isSession:false
+                            isSession: false
                         })
                         this.props.toggleInterval(this.state.isSession);
                     }
-                    else{
+                    else {
                         this.setState({
-                            isSession:true
+                            isSession: true
                         })
                         this.props.toggleInterval(this.state.isSession);
                     }
                 }
 
-                else{
+                else {
                     this.props.updateTimerMinute();
                     this.setState({
-                        timerSecond : 59
+                        timerSecond: 59
                     })
                 }
                 break;
             default:
-                this.setState(prevState =>{
-                    return{
-                        timerSecond : this.state.timerSecond - 1
+                this.setState(prevState => {
+                    return {
+                        timerSecond: this.state.timerSecond - 1
                     }
                 })
         }
 
     }
 
-    stop(){
+    stop() {
         clearInterval(this.state.intervalId)
         this.props.onPlayTimer(false);
-        }
+    }
 
-    reset(){
+    reset() {
         this.stop();
         this.props.onPlayTimer(false);
         this.props.resetTimer();
         this.setState({
-            timerSecond:0,
-            isSession:true
+            timerSecond: 0,
+            isSession: true
         })
     }
 
@@ -85,13 +85,13 @@ class Session extends Component {
                     <span className="timer-text">{this.props.timerMinute}</span>
                     <span className="timer-text">:</span>
                     <span className="timer-text">{this.state.timerSecond === 0 ? "00" :
-                     this.state.timerSecond < 10 ? "0" + this.state.timerSecond : this.state.timerSecond }</span>
+                        this.state.timerSecond < 10 ? "0" + this.state.timerSecond : this.state.timerSecond}</span>
                 </div>
 
                 <div className="timer-action">
-                    <button onClick={this.play}>Start</button>
-                    <button onClick={this.stop}>Stop</button>
-                    <button onClick={this.reset}>Reset</button>
+                    <button type="button" className="btn btn-primary" onClick={this.play}>Start</button>
+                    <button type="button" className="btn btn-primary" onClick={this.stop}>Stop</button>
+                    <button type="button" className="btn btn-primary" onClick={this.reset}>Reset</button>
                 </div>
             </div>
         )

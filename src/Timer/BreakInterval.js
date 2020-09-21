@@ -20,9 +20,9 @@ function BreakInterval(props) {
         <div>
             <h4>Break Length</h4>
             <div className="break-interval-container">
-                <button disabled={props.isPlay === true ? "disabled" : ""} onClick={decreaseCounter}>Down</button>
+                <button type="button" className="btn btn-primary" disabled={props.isPlay === true ? "disabled" : ""} onClick={decreaseCounter}>Down</button>
                 <p className="break-interval-text">{props.breakInterval}</p>
-                <button disabled={props.isPlay === true ? "disabled" : ""} onClick={increaseCounter}>Up</button>
+                <button type="button" className="btn btn-primary" disabled={props.isPlay === true ? "disabled" : ""} onClick={increaseCounter}>Up</button>
             </div>
         </div>
     )

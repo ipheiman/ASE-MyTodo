@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import BreakInterval from '../components/BreakInterval'
-import SessionInterval from '../components/SessionInterval'
-import Session from '../components/Session'
+import BreakInterval from '../Timer/BreakInterval'
+import SessionInterval from '../Timer/SessionInterval'
+import Session from '../Timer/Session'
 import '../App.css';
 class Timer extends Component {
     
@@ -102,7 +102,10 @@ class Timer extends Component {
         document.body.style = 'background:  #ECECEC;'; 
         return (
             <div className="timer">
+                <header>
                 <h1>Welcome to Timer</h1>
+
+                </header>
                 <div className="break-session-container">
                     <BreakInterval
                         // pass props

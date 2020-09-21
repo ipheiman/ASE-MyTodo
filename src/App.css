@@ -6,6 +6,12 @@
   font-family: "Poppins", sans-serif;
 
 }
+.timer p{
+  color: #212529 !important
+}
+.homepage,.viewprogress, .leaderboard, .timer header{
+  margin-top:50px
+}
 /* icon */
 i {
   padding-right: 10px;
@@ -72,7 +78,7 @@ h4{
 }
 
 .session-container{
-  border: 3px solid white;
+  border: 3px solid #5DA2D5;
   border-radius: 10px;
   margin-top: 40px;
   text-align: center;  
@@ -82,7 +88,7 @@ h4{
   margin-top:20px;
   text-align: center;
 }
-.timer button{
+/* .timer button{
   padding: 5px 12px;
   margin: 0 10px;
   height: 25px;
@@ -91,8 +97,16 @@ h4{
   outline:none;
   cursor:pointer;
   color:#eee;
-}
+} */
 
 button:disabled{
   cursor:not-allowed
+}
+
+.btn{
+  width:80px
+}
+
+.timer-action .btn{
+  margin-right: 10px
 }
