@@ -69,7 +69,7 @@
 .timer p{
   color: #212529 !important
 }
-.homepage,.viewprogress, .leaderboard, .timer header{
+.homepage,.viewprogress, .leaderboard-page, .timer header{
   margin-top:50px
 }
 /* icon */
