@@ -8,7 +8,7 @@ function Leaderboard() {
                 <h1>Welcome to Leaderboard</h1>
 
             </header>
-            <div class="leaderboard">
+            <div class="leaderboard container">
                 <h1>
                     <strong>
                     BEST EMPLOYEE OF SEPTEMBER 2020

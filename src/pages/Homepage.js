@@ -17,7 +17,7 @@ function Homepage(props) {
     }, []);
     props.setNavBarHidden(false)
     return (
-        <div className="homepage">
+        <div className="homepage container">
             <header>
                 <h1>Welcome to MyToDo!</h1>
             </header>

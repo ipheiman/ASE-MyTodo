@@ -5,11 +5,38 @@
   /* font-family: 'Lato', sans-serif; */
   font-family: "Poppins", sans-serif;
 }
+
+/* PROJECT-TABLE */
+.dropdown{
+  margin-bottom:10px;
+  text-align:right
+
+}
+.project-table{
+overflow:auto;
+max-height:400px;
+min-height:400px;
+}
+.project-table th{
+  border-top:2px solid #5DA2D5 !important;
+  border-bottom:2px solid #5DA2D5 !important;
+}
+
+.project-table td{
+  /* border-top:2px solid #5DA2D5 !important; */
+  border-bottom:2px solid #b6bfc7 !important;
+}
+
+
 /* CALENDAR */
-.react-calendar {
+.homepage .react-calendar {
   border-radius: 40px !important;
   background: #b1ddff !important;
   border: 0 !important;
+}
+.react-date-picker__clear-button{
+  display:none;
+  cursor: not-allowed;
 }
 /* CLOCK */
 .clock-calendar{
@@ -60,17 +87,18 @@
   border-radius: 50%;
   transform: translateX(-50%);
 }
-.description-input{
-  height:100px !important
-}
+
 .modal-btn{
   margin-left: 50%;
 }
 .timer p{
   color: #212529 !important
 }
-.homepage,.viewprogress, .leaderboard-page, .timer header{
+.homepage,.viewprogress, .project-page, .leaderboard-page, .timer header{
   margin-top:50px
+}
+.project-page h1{
+  margin-bottom:40px
 }
 /* icon */
 i {

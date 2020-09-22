@@ -5,6 +5,7 @@ function Todolist(props) {
     return (
         <div className="todo-container">
             <ul className="todo-list">
+                {/* CREATE A NEW TODOS ARRAY WITH map */}
                 {props.filteredTodos.map((todo)=>(
                     <Todo 
                     text={todo.text} 

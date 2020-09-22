@@ -19,8 +19,8 @@ body {
             transform: translate(-50%, -50%);
     width: 800px;
     height: 500px;
-    background: -webkit-linear-gradient(top, #2C6896, #181c26);
-    background: linear-gradient(to bottom, #2C6896, #181c26);
+    background: -webkit-linear-gradient(top, #2C6896, #424f72);
+    background: linear-gradient(to bottom, #2C6896, #424f72);
     border-radius: 10px;
     box-shadow: 0 7px 30px rgba(62, 9, 11, 0.3);
   }

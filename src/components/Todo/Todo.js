@@ -2,6 +2,7 @@ import React from 'react'
 
 function Todo(props) {
     const deleteHandler = () =>{
+        // return remaining elements that are not deleted
         props.setTodos(props.todos.filter(el => el.id !== props.todo.id))
     }
     const completeHandler = () =>{
