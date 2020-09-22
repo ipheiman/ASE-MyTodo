@@ -18,9 +18,13 @@ const RegisterSuccess = () => {
             </span>
             <h3 className="text-center">We have received your request!</h3>
             <Link to="/">
-              <button className="login100-form-btn m-t-17" >
+              {/* <button className="login100-form-btn m-t-17" >
                 <b>Back to Login</b>
+              </button> */}
+              <button className="btn btn-primary btn-block login-btn m-t-17" >
+                <b className="login-text">BACK TO LOGIN</b>
               </button>
+
             </Link>
           </div>
         </div>

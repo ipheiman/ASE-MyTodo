@@ -89,9 +89,9 @@ class Session extends Component {
                 </div>
 
                 <div className="timer-action">
-                    <button type="button" className="login100-form-btn m-t-17" onClick={this.play}>Start</button>
-                    <button type="button" className="login100-form-btn m-t-17" onClick={this.stop}>Stop</button>
-                    <button type="button" className="login100-form-btn m-t-17" onClick={this.reset}>Reset</button>
+                    <button type="button" className="btn btn-primary timer-btn session-btn" onClick={this.play}>Start</button>
+                    <button type="button" className="btn btn-primary timer-btn session-btn" onClick={this.stop}>Stop</button>
+                    <button type="button" className="btn btn-primary timer-btn session-btn" onClick={this.reset}>Reset</button>
                 </div>
             </div>
         )

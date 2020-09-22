@@ -83,8 +83,11 @@ const Register = ({ submitForm }) => {
                   </a>
                 </span>
 
-                <button type="submit" className="login100-form-btn m-t-17" >
+                {/* <button type="submit" className="login100-form-btn m-t-17" >
                   <b>Register</b>
+                </button> */}
+                <button type="submit" className="btn btn-primary btn-block login-btn m-t-17" >
+                  <b className="login-text">REGISTER</b>
                 </button>
 
               </div>

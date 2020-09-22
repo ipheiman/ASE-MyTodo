@@ -44,8 +44,9 @@ function Login(props) {
                                     </span>
                                 </Link>
                                 <Link to="/homepage">
-                                    <button className="login100-form-btn m-t-17" >
-                                        <b>Login</b>
+                                {/* login100-form-btn m-t-17 */}
+                                    <button className="btn btn-primary btn-block login-btn m-t-17" >
+                                        <b className="login-text">LOGIN</b>
                                     </button>
                                 </Link>
                             </div>

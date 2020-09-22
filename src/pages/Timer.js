@@ -103,7 +103,7 @@ class Timer extends Component {
         return (
             <div className="timer container">
                 <header>
-                <h1>Welcome to Timer</h1>
+                <h1>Timer</h1>
 
                 </header>
                 <div className="break-session-container">

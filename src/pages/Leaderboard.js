@@ -5,7 +5,7 @@ function Leaderboard() {
     return (
         <div className="leaderboard-page">
             <header>
-                <h1>Welcome to Leaderboard</h1>
+                <h1>Leaderboard</h1>
 
             </header>
             <div class="leaderboard container">

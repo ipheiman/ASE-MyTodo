@@ -6,7 +6,7 @@ function ViewProgress() {
         <div className="viewprogress">
             <header>
             <h1>
-                Welcome to View Progress
+                View Progress
             </h1>
 
             </header>

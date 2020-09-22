@@ -9,6 +9,7 @@ import Leaderboard from './pages/Leaderboard'
 import Navbar from './components/Navbar'
 import RegistrationForm from './pages/RegistrationForm'
 import Project_test from './components/ProjectTesting/Project_test'
+import Task from './components/TaskTesting/Task'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
   // By default, navbarhidden = false
@@ -21,11 +22,11 @@ function App() {
           <Route exact path="/" render={()=> <Login setNavBarHidden={setNavBarHidden}/>} />
           <Route path="/register" render={()=> <RegistrationForm setNavBarHidden={setNavBarHidden}/>}  />
           <Route path="/homepage" render={()=> <Homepage setNavBarHidden={setNavBarHidden}/>} />
-          <Route path="/project" component={Project} />
           <Route path="/timer" component={Timer} />
           <Route path="/viewprogress" component={ViewProgress} />
           <Route path="/leaderboard" component={Leaderboard} />
-          <Route path="/abc" component={Project_test}/>
+          <Route path="/project" component={Project_test}/>
+          <Route path="/task" component={Task}/>
         </Switch>
       </BrowserRouter>
     </div>

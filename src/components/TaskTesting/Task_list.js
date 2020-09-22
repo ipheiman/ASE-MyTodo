@@ -1,7 +1,6 @@
 import React from 'react'
-import Each_project from './Each_project'
-function Project_list(props) {
-    
+import Each_task from './Each_task'
+function Task_list(props) {
     return (
         <div>
             {/* TABLE */}
@@ -13,21 +12,24 @@ function Project_list(props) {
                             <th scope="col">Name</th>
                             <th scope="col">Description</th>
                             <th scope="col">Due Date</th>
+                            <th scope="col">Priority</th>
+                            <th scope="col">Reminder Date</th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {props.filteredTodos.map((todo) => (
-                            <Each_project
-                                text={todo.text}
-                                description={todo.description}
-                                date={todo.date}
-                                key={todo.id}
-                                todo={todo}
-                                setTodos={props.setTodos}
-                                todos={props.todos}
+                        {props.filteredTasks.map((task) => (
+                            <Each_task
+                                text={task.text}
+                                description={task.description}
+                                priority={task.priority}
+                                date={task.date}
+                                key={task.id}
+                                task={task}
+                                setTasks={props.setTasks}
+                                tasks={props.tasks}
                             />
                         ))}
                     </tbody>
@@ -38,4 +40,4 @@ function Project_list(props) {
     )
 }
 
-export default Project_list
+export default Task_list

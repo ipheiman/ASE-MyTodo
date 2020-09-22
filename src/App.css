@@ -7,15 +7,23 @@
 }
 
 /* PROJECT-TABLE */
-.dropdown{
+.project-buttons{
   margin-bottom:10px;
-  text-align:right
-
+  /* text-align:right !important; */
+  float:right
 }
+
+.dropdown{
+  margin-right:10px
+}
+
+
+
 .project-table{
 overflow:auto;
 max-height:400px;
 min-height:400px;
+margin-left:50px
 }
 .project-table th{
   border-top:2px solid #5DA2D5 !important;
@@ -27,7 +35,14 @@ min-height:400px;
   border-bottom:2px solid #b6bfc7 !important;
 }
 
+/* LOGIN */
+.login-btn{
+  height:62px !important
+}
 
+.login-text{
+  font-size: 20px !important;
+}
 /* CALENDAR */
 .homepage .react-calendar {
   border-radius: 40px !important;
@@ -88,9 +103,6 @@ min-height:400px;
   transform: translateX(-50%);
 }
 
-.modal-btn{
-  margin-left: 50%;
-}
 .timer p{
   color: #212529 !important
 }
@@ -201,6 +213,10 @@ button:disabled{
   height:45px
 }
 
-.timer-action .login100-form-btn{
+.timer-btn{
+  width:80px
+}
+
+.session-btn{
   margin-right: 10px;
 }

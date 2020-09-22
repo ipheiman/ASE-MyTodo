@@ -1,41 +1,46 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-date-picker';
-
-function Project_form(props) {
+function Task_form(props) {
     const [date, setDate] = useState(new Date());
+    const [reminderDate, setReminderDate] = useState(new Date());
     // console.log((date.toDateString()))
     const statusHandler = (e) => {
         // console.log(e.target.value)
         props.setStatus(e.target.value)
     }
     // upon event
-    const ProjectNameHandler = (e) => {
+    const TaskNameHandler = (e) => {
         // console.log(e.target.value)
-        props.setProjectName(e.target.value)
+        props.setTaskName(e.target.value)
     }
-    const ProjectDescriptionHandler = (e) => {
+    const TaskDescriptionHandler = (e) => {
         // console.log(e.target.value)
-        props.setProjectDescription(e.target.value)
+        props.setTaskDescription(e.target.value)
     }
-
-    const submitToDoHandler = (e) => {
+    const TaskPriorityHandler = (e) => {
+        // console.log(e.target.value)
+        props.setTaskPriority(e.target.value)
+    }
+    const submitTaskHandler = (e) => {
         // e.preventDefault is so that you dont click the button and go to another page
         e.preventDefault()
-        props.setTodos([
+        props.setTasks([
             // ... means append to previous items
-            ...props.todos,
+            ...props.tasks,
             {
-                text: props.projectName,
-                description: props.projectDescription,
+                text: props.taskName,
+                description: props.taskDescription,
+                priority:props.taskPriority,
                 date: date.toDateString(),
+                reminderDate: date.toDateString(),
                 completed: false,
                 // informal way of getting unique id
                 id: Math.random() * 1000
             }
         ])
         // Reset inputTextbar
-        props.setProjectName("")
-        props.setProjectDescription("")
+        props.setTaskName("")
+        props.setTaskDescription("")
     }
 
     return (
@@ -61,7 +66,7 @@ function Project_form(props) {
 
                 {/* <!-- Button trigger modal --> */}
                 <button type="button" className="btn btn-primary modal-btn" data-toggle="modal" data-target="#exampleModal">
-                    Add Project
+                    Add Task
             </button>
 
             </div>
@@ -70,7 +75,7 @@ function Project_form(props) {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Add Project</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Add Task</h5>
 
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -79,11 +84,19 @@ function Project_form(props) {
                         <div className="modal-body mx-3">
                             <div className="md-form mb-3">
                                 <label>Name</label>
-                                <input value={props.projectName} onChange={ProjectNameHandler} type="text" className="form-control" />
+                                <input value={props.taskName} onChange={TaskNameHandler} type="text" className="form-control" />
                             </div>
                             <div className="md-form mb-4">
                                 <label>Description</label>
-                                <textarea value={props.projectDescription} onChange={ProjectDescriptionHandler} rows="3" type="text" className="form-control description-input" />
+                                <textarea value={props.taskDescription} onChange={TaskDescriptionHandler} rows="3" type="text" className="form-control description-input" />
+                            </div>
+                            <div className="md-form mb-4">
+                                <label>Priority</label>
+                                <select onChange={TaskPriorityHandler} name="todos" className="filter-todo browser-default custom-select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
                             </div>
                             <div className="md-form mb-4">
                                 <label>Due Date</label>
@@ -93,10 +106,18 @@ function Project_form(props) {
                                     value={date}
                                 />
                             </div>
+                            <div className="md-form mb-4">
+                                <label>Reminder</label>
+                                <br></br>
+                                <DatePicker
+                                    onChange={setReminderDate}
+                                    value={reminderDate}
+                                />
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button onClick={submitToDoHandler} data-dismiss="modal" type="button" className="btn btn-primary">Add Project</button>
+                            <button onClick={submitTaskHandler} data-dismiss="modal" type="button" className="btn btn-primary">Add Task</button>
                         </div>
                     </div>
                 </div>
@@ -106,4 +127,4 @@ function Project_form(props) {
     )
 }
 
-export default Project_form
+export default Task_form
