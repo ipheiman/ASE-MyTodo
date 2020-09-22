@@ -3,18 +3,18 @@ import Clock from 'react-clock';
 import Calendar from 'react-calendar';
 import 'react-clock/dist/Clock.css';
 function Homepage(props) {
-    document.body.style = 'background:  #ECECEC';
     const [date, setValue] = useState(new Date());
-    const [value, onChange] = useState(new Date());
+    const [value, setTimeValue] = useState(new Date());
     useEffect(() => {
         const interval = setInterval(
-            () => setValue(new Date()),
-            1000
+          () => setTimeValue(new Date()),
+          1000
         );
+    
         return () => {
-            clearInterval(interval);
+          clearInterval(interval);
         }
-    }, []);
+      }, []);
     props.setNavBarHidden(false)
     return (
         <div className="homepage container">
@@ -24,7 +24,7 @@ function Homepage(props) {
             <div className="clock-calendar">
                 <Clock className="clock" value={value} />
                 <Calendar
-                    onChange={onChange}
+                    onChange={setValue}
                     value={date}
                 />
             </div>

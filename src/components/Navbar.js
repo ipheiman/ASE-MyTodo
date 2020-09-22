@@ -8,7 +8,8 @@ import * as FaIcons from "react-icons/fa";
 function Navbar() {
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor:"#2C6896"}}> 
+            {/* style={{backgroundColor:"#EEEEEE"}} */}
+            <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:"#e3f2fd"}} > 
                 <a className="navbar-brand" style={{paddingLeft:"15px"}}>MyToDo</a>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

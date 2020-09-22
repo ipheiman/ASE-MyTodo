@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Project_form from './Project_form'
 import Project_list from './Project_list'
 function Project_test() {
-    document.body.style = 'background:  #ECECEC;';
     // SHOULD BE ALRIGHT TO PUT SAME NAME
     const [projectName, setProjectName] = useState("")
     const [projectDescription, setProjectDescription] = useState("")

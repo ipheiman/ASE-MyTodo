@@ -1,7 +1,6 @@
 import React from 'react'
 import './Leaderboard.css'
 function Leaderboard() {
-    document.body.style = 'background:  #ECECEC';
     return (
         <div className="leaderboard-page">
             <header>
@@ -10,9 +9,9 @@ function Leaderboard() {
             </header>
             <div class="leaderboard container">
                 <h1>
-                    <strong>
+
                     BEST EMPLOYEE OF SEPTEMBER 2020
-                    </strong>
+
                 </h1>
                 <ol>
                     <li>

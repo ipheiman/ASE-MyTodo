@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import Project from './pages/Project';
 import Timer from './pages/Timer';
 import ViewProgress from './pages/ViewProgress';
 import Login from './pages/Login'

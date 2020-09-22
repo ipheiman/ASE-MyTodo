@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Task_form from './Task_form'
 import Task_list from './Task_list'
 function Task() {
-    document.body.style = 'background:  #ECECEC;';
-    // SHOULD BE ALRIGHT TO PUT SAME NAME
     const [taskName, setTaskName] = useState("")
     const [taskDescription, setTaskDescription] = useState("")
     const [taskPriority, setTaskPriority] = useState("1")
