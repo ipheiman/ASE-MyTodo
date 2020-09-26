@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import '../../App.css'
+import audio from './timer-sound.mp3'
 class Session extends Component {
     constructor(props) {
         super()
+
+        this.timerAlarm = new Audio(audio);
 
         this.state = {
             // By default isSession:true
@@ -16,7 +19,8 @@ class Session extends Component {
         this.decreaseTimer = this.decreaseTimer.bind(this)
         this.stop = this.stop.bind(this)
         this.reset = this.reset.bind(this)
-
+        this.startTimerAudio = this.startTimerAudio.bind(this)
+        this.stopTimerAudio = this.stopTimerAudio.bind(this)
     }
 
     play() {
@@ -32,6 +36,7 @@ class Session extends Component {
             case 0:
                 if (this.props.timerMinute === 0) {
                     if (this.state.isSession) {
+                        this.startTimerAudio();
                         this.setState({
                             isSession: false
                         })
@@ -61,8 +66,22 @@ class Session extends Component {
         }
 
     }
+    startTimerAudio(){
+        this.timerAlarm.play();
+        this.timerAlarm.loop = true;
+        clearInterval(this.state.intervalId)
+        setTimeout(() => {
+            this.stopTimerAudio();
+            this.play(); //continue the timer
+        }, 60000)
+    }
+
+    stopTimerAudio(){
+        this.timerAlarm.pause();
+    }
 
     stop() {
+        this.stopTimerAudio();
         clearInterval(this.state.intervalId)
         this.props.onPlayTimer(false);
     }
