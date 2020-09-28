@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../../App.css'
 import audio from './timer-sound.mp3'
+import {Modal, Button} from 'react-bootstrap'
+// import ReactTimeout from 'react-timeout'
 class Session extends Component {
     constructor(props) {
         super()
@@ -12,7 +14,9 @@ class Session extends Component {
             isSession: true,
             timerSecond: 0,
             // need intervalId to use setInterval and clearInterval
-            intervalId: 0
+            intervalId: 0,
+            showForm: false, //to display the popup in between the intervals
+            timeoutId: 0 //to store the timeout id
         }
 
         this.play = this.play.bind(this)
@@ -20,7 +24,9 @@ class Session extends Component {
         this.stop = this.stop.bind(this)
         this.reset = this.reset.bind(this)
         this.startTimerAudio = this.startTimerAudio.bind(this)
+        this.startTimerAudio2 = this.startTimerAudio2.bind(this)
         this.stopTimerAudio = this.stopTimerAudio.bind(this)
+        this.handleDismiss = this.handleDismiss.bind(this)
     }
 
     play() {
@@ -43,6 +49,7 @@ class Session extends Component {
                         this.props.toggleInterval(this.state.isSession);
                     }
                     else {
+                        this.startTimerAudio2();
                         this.setState({
                             isSession: true
                         })
@@ -66,22 +73,51 @@ class Session extends Component {
         }
 
     }
-    startTimerAudio(){
+    startTimerAudio(){ //when switching from session to break
+        this.setState({
+            showForm: true,
+            timeoutId: setTimeout(() => {
+                this.setState({
+                    isSession: false
+                })
+                this.handleDismiss();
+            }, 60000)
+        })
         this.timerAlarm.play();
         this.timerAlarm.loop = true;
         clearInterval(this.state.intervalId)
-        setTimeout(() => {
-            this.stopTimerAudio();
-            this.play(); //continue the timer
-        }, 60000)
+    }
+
+    startTimerAudio2(){ //when switching from break to session
+        this.setState({
+            showForm: true,
+            timeoutId: setTimeout(() => {
+                this.setState({
+                    isSession: true
+                })
+                this.handleDismiss();
+            }, 60000)
+        })
+        this.timerAlarm.play();
+        this.timerAlarm.loop = true;
+        clearInterval(this.state.intervalId)
     }
 
     stopTimerAudio(){
         this.timerAlarm.pause();
     }
 
-    stop() {
+    handleDismiss(){ 
+        this.setState({
+            showForm: false
+            // isSession: false
+        })
+        clearTimeout(this.state.timeoutId);
         this.stopTimerAudio();
+        this.play();
+    }
+
+    stop() { //when the stop button is pressed
         clearInterval(this.state.intervalId)
         this.props.onPlayTimer(false);
     }
@@ -112,6 +148,24 @@ class Session extends Component {
                     <button type="button" className="btn btn-info timer-btn session-btn" onClick={this.stop}>Stop</button>
                     <button type="button" className="btn btn-info timer-btn session-btn" onClick={this.reset}>Reset</button>
                 </div>
+
+
+                <Modal show={this.state.showForm}>
+                    <Modal.Header closeButton onClick={this.handleDismiss}>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                        Timer Ringing Period
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>This timer will ring for 1 minute.</p>
+                        <p>Click on "Snoooze" for another 1 minute of ringing.</p>
+                        <p>Click on "Dismiss" to start the break interval.</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="info">Snooze</Button>
+                        <Button variant="info" onClick={this.handleDismiss}>Dismiss</Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
         )
     }
