@@ -27,6 +27,7 @@ function Task_list(props) {
                                 description={task.description}
                                 priority={task.priority}
                                 date={task.date}
+                                reminderDate={task.reminderDate} 
                                 key={task.id}
                                 task={task}
                                 setTasks={props.setTasks}
