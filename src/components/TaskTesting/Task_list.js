@@ -5,8 +5,9 @@ function Task_list(props) {
         <div>
             {/* TABLE */}
 
-            <div className="project-table">
-                <table className="table table-hover" id="project-table">
+            <div className="task-table">
+                {/* <table className="table table-hover" id="project-table"> */}
+                <table className="task-table">
                     <thead className="text-center">
                         <tr>
                             <th scope="col">Name</th>
@@ -14,9 +15,9 @@ function Task_list(props) {
                             <th scope="col">Due Date</th>
                             <th scope="col">Priority</th>
                             <th scope="col">Reminder Date</th>
+                            {/* <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th scope="col"></th> */}
                         </tr>
                     </thead>
                     <tbody>
