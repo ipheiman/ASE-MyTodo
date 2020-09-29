@@ -7,15 +7,17 @@ function Project_list(props) {
             {/* TABLE */}
 
             <div className="project-table">
-                <table className="table table-hover" id="project-table">
-                    <thead className="text-center">
+                {/* <table className="table table-hover" id="project-table"> */}
+                <table className="project-table">
+                    <thead className="text-left"> 
                         <tr>
+                        {/* <tr className="text-center"> */}
                             <th scope="col">Name</th>
                             <th scope="col">Description</th>
                             <th scope="col">Due Date</th>
+                            {/* <th scope="col"></th>
                             <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
+                            <th scope="col"></th> */}
                         </tr>
                     </thead>
                     <tbody>

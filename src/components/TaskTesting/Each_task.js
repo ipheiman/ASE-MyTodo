@@ -21,18 +21,22 @@ function Each_task(props) {
         <div>
             {/* create the TR TD ELEMENTS DYNAMICALLY! */}
             <div className="todo">
-                <tr>
-                    <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>{props.text}</td>
+                <tr className="text-center">
+                    <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>
+                    <button onClick={completeHandler} className="complete-btn text-success"><i className="fas fa-check"></i></button>
+                    <button onClick={deleteHandler} className="trash-btn text-danger"><i className="fas fa-trash"></i></button>
+                    {props.text}
+                    </td>
                     <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>{props.description}</td>
                     <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>{props.date}</td>
                     <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>{props.priority}</td>
                     <td className={`todo-item ${props.task.completed ? "completed" : ""}`}>{props.reminderDate}</td>
-                    <td>
+                    {/* <td>
                         <button onClick={completeHandler} className="complete-btn text-success"><i className="fas fa-check"></i></button>
                     </td>
                     <td>
                         <button onClick={deleteHandler} className="trash-btn text-danger"><i className="fas fa-trash"></i></button>
-                    </td>
+                    </td> */}
                 </tr>
             </div>
 

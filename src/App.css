@@ -23,17 +23,64 @@
 overflow:auto;
 max-height:400px;
 min-height:400px;
-margin-left:50px
+/* margin-left:50px; */
+table-layout: fixed;
+width: 999px;
 }
 .project-table th{
-  border-top:2px solid #e3f2fd !important;
+  /* border-top:2px solid #e3f2fd !important; */
   border-bottom:2px solid #e3f2fd !important;
+  width: 333px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
-
-.project-table td{
+ .project-table td{
   /* border-top:2px solid #5DA2D5 !important; */
   border-bottom:2px solid #e3f2fd !important;
+  overflow-x: hidden;
+  width: 333px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+} 
+
+.todo{
+  table-layout: fixed;
+  width: 999px;
+  text-align: left;
 }
+/* .todo tr{
+  border-bottom:2px solid #e3f2fd !important; 
+  width: 999px;
+} */
+
+
+.task-table{
+  overflow:auto;
+  max-height:400px;
+  min-height:400px;
+  /* margin-left:50px; */
+  table-layout: fixed;
+  width: 1000px;
+}
+.task-table th{
+  /* border-top:2px solid #e3f2fd !important; */
+  border-bottom:2px solid #e3f2fd !important;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+.task-table td{
+  /* border-top:2px solid #5DA2D5 !important; */
+  border-bottom:2px solid #e3f2fd !important;
+  overflow-x: hidden;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+} 
 
 /* LOGIN */
 .login-btn{
