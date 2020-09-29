@@ -32,6 +32,8 @@ const Register = ({ submitForm }) => {
                   value={values.username}
                   onChange={handleChange}
                 />
+                <span className="focus-input100"></span>
+
               </div>
               <div className="form-inputs ">
                 {errors.username && <p>{errors.username}</p>}
@@ -46,6 +48,8 @@ const Register = ({ submitForm }) => {
                   value={values.email}
                   onChange={handleChange}
                 />
+                <span className="focus-input100"></span>
+
               </div>
               <div className="form-inputs">
                 {errors.email && <p>{errors.email}</p>}
@@ -59,6 +63,8 @@ const Register = ({ submitForm }) => {
                   value={values.password}
                   onChange={handleChange}
                 />
+                <span className="focus-input100"></span>
+
               </div>
               <div className="form-inputs">
                 {errors.password && <p>{errors.password}</p>}
@@ -72,6 +78,8 @@ const Register = ({ submitForm }) => {
                   value={values.password2}
                   onChange={handleChange}
                 />
+                <span className="focus-input100"></span>
+
               </div>
               <div className="form-inputs">
                 {errors.password2 && <p>{errors.password2}</p>}
