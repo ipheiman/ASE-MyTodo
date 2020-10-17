@@ -15,9 +15,8 @@ function Task_list(props) {
                             <th scope="col">Due Date</th>
                             <th scope="col">Priority</th>
                             <th scope="col">Reminder Date</th>
-                            {/* <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th> */}
+
+
                         </tr>
                     </thead>
                     <tbody>
