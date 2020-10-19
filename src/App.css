@@ -61,14 +61,22 @@ width: 999px;
   float:right !important;
 }
 
+.add-project-btn{
+  /* color:black !important; */
+  /* font-weight: bold !important; */
+  width: 160px !important; 
+  line-height: 1.7 !important;
+}
 .add-icon{
-  padding-left: 10px;
+  /* padding-left: 10px !important; */
+  float:right !important;
+  padding-top:5px
 }
 
 #v-pills-tab{
   margin-top:-50px !important;
   float:left !important;
-  width:150px !important; 
+  width:160px !important; 
   min-height:400px !important;
 }
 

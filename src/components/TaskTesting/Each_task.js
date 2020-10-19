@@ -62,7 +62,7 @@ function Each_task(props) {
                                     <p>Are you sure you want to delete this task?</p>
                                 </Modal.Body>
                                 <Modal.Footer>
-                                    <Button variant="info" onClick={handleDismiss}>Cancel</Button>
+                                    <Button variant="secondary" onClick={handleDismiss}>Cancel</Button>
                                     <Button variant="danger" onClick={deleteHandler}>Confirm</Button>
                                 </Modal.Footer>
                             </Modal>

@@ -65,7 +65,7 @@ function Task_form(props) {
 
     return (
         <div>
-            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#projectModal">
+            <button type="button" className="btn btn-info add-project-btn" data-toggle="modal" data-target="#projectModal">
                 Add Project
                 <i className="fas fa-plus add-icon"></i>
             </button>
@@ -82,7 +82,7 @@ function Task_form(props) {
                 {/* <!-- Button trigger modal --> */}
 
 
-                <button type="button" className="btn btn-primary modal-btn" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" className="btn btn-info modal-btn" data-toggle="modal" data-target="#exampleModal">
                     Add Task
                 </button>
 
