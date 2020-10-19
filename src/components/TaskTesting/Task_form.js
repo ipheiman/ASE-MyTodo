@@ -65,6 +65,10 @@ function Task_form(props) {
 
     return (
         <div>
+            <button type="button" className="btn btn-warning" data-toggle="modal" data-target="#projectModal">
+                Add Project
+                <i className="fas fa-plus add-icon"></i>
+            </button>
             <div className="btn-group project-buttons">
 
                 <div className="dropdown select">
@@ -73,21 +77,10 @@ function Task_form(props) {
                         <option value="completed">Completed</option>
                         <option value="inprogress">In Progress</option>
                     </select>
-
-                    {/* <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                </button>
-                    <div onChange={statusHandler} className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <option value="all" className="dropdown-item">All</option>
-                        <option value="completed" className="dropdown-item">Completed</option>
-                        <option value="in-progress" className="dropdown-item">In Progress</option>
-                    </div> */}
                 </div>
 
                 {/* <!-- Button trigger modal --> */}
-                <button type="button" className="btn btn-primary modal-btn" data-toggle="modal" data-target="#projectModal">
-                    Add Project
-                </button>
+
 
                 <button type="button" className="btn btn-primary modal-btn" data-toggle="modal" data-target="#exampleModal">
                     Add Task

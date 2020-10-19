@@ -19,13 +19,17 @@ function Task() {
     // RUN ONCE WHEN APP STARTS
     useEffect(() => {
         getLocalTasks()
+        getLocalSideProjects()
     }, [])
 
 
     useEffect(() => {
         filterHandler()
         saveLocalTasks()
-    }, [tasks, status])
+        saveLocalSideProjects()
+    }, [tasks, status, sideProjects])
+
+
     const filterHandler = () => {
         switch (status) {
             case "completed":
@@ -39,12 +43,23 @@ function Task() {
 
         }
     }
-
-    // Save to local
+    // Save sideProjects to local
+    const saveLocalSideProjects = () => {
+        localStorage.setItem('sideProjects', JSON.stringify(sideProjects))
+    }
+    const getLocalSideProjects = () => {
+        if (localStorage.getItem('sideProjects') == null) {
+            localStorage.setItem('sideProjects', JSON.stringify([]))
+        }
+        else {
+            let sideProjectLocal = JSON.parse(localStorage.getItem("sideProjects"))
+            setSideProjects(sideProjectLocal)
+        }
+    }
+    // Save tasks to local
     const saveLocalTasks = () => {
         localStorage.setItem('tasks', JSON.stringify(tasks))
     }
-
     const getLocalTasks = () => {
         if (localStorage.getItem('tasks') == null) {
             localStorage.setItem('tasks', JSON.stringify([]))
@@ -62,10 +77,10 @@ function Task() {
                 <h1>Task</h1>
                 <div className="project-todo">
                     <Task_form
-                        sideProjectName = {sideProjectName}
-                        setSideProjectName = {setSideProjectName}
-                        sideProjects = {sideProjects}
-                        setSideProjects = {setSideProjects}
+                        sideProjectName={sideProjectName}
+                        setSideProjectName={setSideProjectName}
+                        sideProjects={sideProjects}
+                        setSideProjects={setSideProjects}
                         taskName={taskName}
                         setTaskName={setTaskName}
                         taskDescription={taskDescription}
@@ -81,8 +96,8 @@ function Task() {
                 <br></br>
                 <div>
                     <Task_list
-                        sideProjects = {sideProjects}
-                        setSideProjects = {setSideProjects}
+                        sideProjects={sideProjects}
+                        setSideProjects={setSideProjects}
                         tasks={tasks}
                         setTasks={setTasks}
                         filteredTasks={filteredTasks}

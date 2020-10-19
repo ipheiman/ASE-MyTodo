@@ -8,14 +8,13 @@ function Task_list(props) {
         <div>
             {/* SIDEBAR */}
             <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Projects<i className="pillIcon"><AiIcons.AiOutlinePlus /></i></a>
                 <div>
                 {props.sideProjects.map((sideProject) => (
                             <Each_sideproject
                                 text={sideProject.sideProjectText}
                                 key={sideProject.projectId}
                                 sideProject={sideProject}
-                                setSideProject={props.setSideProjects}
+                                setSideProjects={props.setSideProjects}
                                 sideProjects={props.sideProjects}
                             />
                         ))}
@@ -28,7 +27,7 @@ function Task_list(props) {
             </div>
             {/* TABLE */}
 
-            <div className="task-table">
+            <div className="task-table container">
                 {/* <table className="table table-hover" id="project-table"> */}
                 <table className="task-table">
                     <thead className="text-center">
