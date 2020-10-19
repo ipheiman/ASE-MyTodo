@@ -1,8 +1,31 @@
 import React from 'react'
 import Each_task from './Each_task'
+import Each_sideproject from './Each_sideproject'
+import * as AiIcons from "react-icons/ai"
+
 function Task_list(props) {
     return (
         <div>
+            {/* SIDEBAR */}
+            <div className="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Projects<i className="pillIcon"><AiIcons.AiOutlinePlus /></i></a>
+                <div>
+                {props.sideProjects.map((sideProject) => (
+                            <Each_sideproject
+                                text={sideProject.sideProjectText}
+                                key={sideProject.projectId}
+                                sideProject={sideProject}
+                                setSideProject={props.setSideProjects}
+                                sideProjects={props.sideProjects}
+                            />
+                        ))}
+
+                </div>
+
+                {/* <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Projects<i className="pillIcon"><AiIcons.AiOutlinePlus /></i></a>
+                <a className="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Projects<i className="pillIcon"><AiIcons.AiOutlinePlus /></i></a> */}
+
+            </div>
             {/* TABLE */}
 
             <div className="task-table">

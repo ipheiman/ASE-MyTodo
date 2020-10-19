@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Task_form from './Task_form'
 import Task_list from './Task_list'
+import * as AiIcons from "react-icons/ai"
+
 function Task() {
+    const [sideProjectName, setSideProjectName] = useState("")
     const [taskName, setTaskName] = useState("")
     const [taskDescription, setTaskDescription] = useState("")
     const [taskPriority, setTaskPriority] = useState("1")
+    // sideProjects is an Array State
+    const [sideProjects, setSideProjects] = useState([])
     // todos is an Array State
     const [tasks, setTasks] = useState([])
     const [status, setStatus] = useState("All")
@@ -20,7 +25,7 @@ function Task() {
     useEffect(() => {
         filterHandler()
         saveLocalTasks()
-    }, [tasks,status])
+    }, [tasks, status])
     const filterHandler = () => {
         switch (status) {
             case "completed":
@@ -35,51 +40,59 @@ function Task() {
         }
     }
 
-        // Save to local
-        const saveLocalTasks = () => {
-            localStorage.setItem('tasks', JSON.stringify(tasks))
+    // Save to local
+    const saveLocalTasks = () => {
+        localStorage.setItem('tasks', JSON.stringify(tasks))
+    }
+
+    const getLocalTasks = () => {
+        if (localStorage.getItem('tasks') == null) {
+            localStorage.setItem('tasks', JSON.stringify([]))
         }
-    
-        const getLocalTasks = () => {
-            if (localStorage.getItem('tasks') == null) {
-                localStorage.setItem('tasks', JSON.stringify([]))
-            }
-            else {
-                let taskLocal = JSON.parse(localStorage.getItem("tasks"))
-                setTasks(taskLocal)
-            }
+        else {
+            let taskLocal = JSON.parse(localStorage.getItem("tasks"))
+            setTasks(taskLocal)
         }
-    
+    }
+
     return (
-        <div className="project-page container">
-            <h1>Task</h1>
-            <div className="project-todo">
-            <Task_form
-                taskName={taskName}
-                setTaskName={setTaskName}
-                taskDescription={taskDescription}
-                setTaskDescription={setTaskDescription}
-                taskPriority={taskPriority}
-                setTaskPriority={setTaskPriority}
-                tasks={tasks}
-                setTasks={setTasks}
-                setStatus={setStatus}
-            />
-            </div>
-            <br></br>
-            <br></br>
-            <div>
-            <Task_list
-                tasks={tasks}
-                setTasks={setTasks}
-                filteredTasks={filteredTasks}
-            />
+        <div className="body">
+            {/* REMOVED CONTAINER  */}
+            <div className="project-page">
+                <h1>Task</h1>
+                <div className="project-todo">
+                    <Task_form
+                        sideProjectName = {sideProjectName}
+                        setSideProjectName = {setSideProjectName}
+                        sideProjects = {sideProjects}
+                        setSideProjects = {setSideProjects}
+                        taskName={taskName}
+                        setTaskName={setTaskName}
+                        taskDescription={taskDescription}
+                        setTaskDescription={setTaskDescription}
+                        taskPriority={taskPriority}
+                        setTaskPriority={setTaskPriority}
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        setStatus={setStatus}
+                    />
+                </div>
+                <br></br>
+                <br></br>
+                <div>
+                    <Task_list
+                        sideProjects = {sideProjects}
+                        setSideProjects = {setSideProjects}
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        filteredTasks={filteredTasks}
+                    />
+
+                </div>
+
 
             </div>
-
-
         </div>
-
     )
 }
 
