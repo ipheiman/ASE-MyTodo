@@ -64,6 +64,8 @@ width: 999px;
   table-layout: fixed;
   width: 1000px;
 }
+
+
 .task-table th{
   /* border-top:2px solid #e3f2fd !important; */
   border-bottom:2px solid #e3f2fd !important;
@@ -78,6 +80,35 @@ width: 999px;
   border-bottom:2px solid #e3f2fd !important;
   overflow-x: hidden;
   width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+} 
+
+.task-tablehome{
+
+
+  max-height:400px;
+  min-height:400px;
+  /* margin-left:50px; */
+  table-layout: fixed;
+  width: 400px;
+  padding-left: 50px;
+}
+.task-tablehome th{
+  /* border-top:2px solid #e3f2fd !important; */
+  border-bottom:2px solid #e3f2fd !important;
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
+
+.task-tablehome td{
+  /* border-top:2px solid #5DA2D5 !important; */
+  border-bottom:2px solid #e3f2fd !important;
+  width: 200px;
+  overflow-x: hidden;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -119,7 +150,7 @@ width: 999px;
 /* CLOCK */
 .clock-calendar{
   margin-top:30px;
-  margin-left:60%
+  margin-left:40%
 }
 .clock{
   margin-bottom:30px;

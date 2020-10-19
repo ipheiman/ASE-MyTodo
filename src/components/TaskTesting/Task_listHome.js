@@ -1,27 +1,26 @@
 import React from 'react'
-import Each_task from './Each_task'
-function Task_list(props) {
+import Each_taskHome from './Each_taskHome'
+function Task_listHome(props) {
     return (
         <div>
             {/* TABLE */}
 
-            <div className="task-table">
+            <div className="task-tablehome">
                 {/* <table className="table table-hover" id="project-table"> */}
-                <table className="task-table">
+                <table className="task-tablehome" >
                     <thead className="text-center" width="15%">
-                        <tr>
+                        <tr >
                             <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Due Date</th>
-                            <th scope="col">Priority</th>
-                            <th scope="col">Reminder Date</th>
+                            <th scope="col" >Due Date</th>
+                            <th scope="col" >Priority</th>
+                    
 
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {props.filteredTasks.map((task) => (
-                            <Each_task
+                            <Each_taskHome
                                 text={task.text}
                                 description={task.description}
                                 priority={task.priority}
@@ -41,4 +40,4 @@ function Task_list(props) {
     )
 }
 
-export default Task_list
+export default Task_listHome
