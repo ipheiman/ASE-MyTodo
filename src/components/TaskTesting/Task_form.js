@@ -52,7 +52,7 @@ function Task_form(props) {
                 description: props.taskDescription,
                 priority: props.taskPriority,
                 date: date.toDateString(),
-                reminderDate: date.toDateString(),
+                reminderDate: reminderDate.toDateString(),
                 completed: false,
                 // informal way of getting unique id
                 id: Math.random() * 1000

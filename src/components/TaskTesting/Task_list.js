@@ -42,6 +42,7 @@ function Task_list(props) {
                                 </tr>
                             </thead>
                             <tbody>
+                            {/* props.setSideProjects(props.sideProjects.filter(el => el.projectId !== props.sideProject.projectId)) */}
                                 {props.filteredTasks.map((task) => (
                                     <Each_task
                                         text={task.text}

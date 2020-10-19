@@ -1,4 +1,5 @@
 import React from 'react'
+import Each_task from './Each_task'
 
 function Each_sideproject(props) {
     const deleteHandler = () => {
