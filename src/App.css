@@ -9,6 +9,7 @@
 /* PROJECT-TABLE */
 .project-buttons{
   margin-bottom:10px;
+  margin-right:100px;
   /* text-align:right !important; */
   float:right
 }
@@ -56,8 +57,44 @@ width: 999px;
 } */
 
 
+.trash-btn-pill{
+  float:right !important;
+}
+
+.add-project-btn{
+  /* color:black !important; */
+  /* font-weight: bold !important; */
+  width: 160px !important; 
+  line-height: 1.7 !important;
+}
+.add-icon{
+  /* padding-left: 10px !important; */
+  float:right !important;
+  padding-top:5px
+}
+
+#v-pills-tab{
+  margin-top:-50px !important;
+  float:left !important;
+  width:160px !important; 
+  min-height:400px !important;
+}
+
+.nav-link{
+  color:black !important;
+
+}
+.nav-link.active{
+  background: #e3f2fd !important;
+  font-weight: bold;
+  padding-left: 20px !important;
+}
+
+.pillIcon{
+  margin-left:30px;
+}
 .task-table{
-  overflow:auto;
+  overflow:auto; 
   max-height:400px;
   min-height:400px;
   /* margin-left:50px; */
@@ -72,7 +109,7 @@ width: 999px;
   width: 200px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .task-table td{

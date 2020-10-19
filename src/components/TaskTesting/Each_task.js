@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import {Modal, Button} from 'react-bootstrap'
 
 function Each_task(props) {
     const deleteHandler = () => {
@@ -20,6 +21,11 @@ function Each_task(props) {
     // const logID = () =>{
     //     console.log(props.task.id)
     // }
+    const handleDismiss = () =>{
+        setModalShow(currentState => ({showPopup: false}));
+    }
+
+    const[{showPopup}, setModalShow] = useState({showPopup: false});
 
     return (
         <div>
@@ -35,39 +41,28 @@ function Each_task(props) {
                         <button onClick={completeHandler} className="complete-btn text-success"><i className="fas fa-check"></i></button>
                     </td>
                     <td id="icon-td">
-                    {/* data-target="#deleteModal" */}
-                        <button data-toggle="modal" data-target="#deleteModal" className="trash-btn text-danger"><i className="fas fa-trash"></i></button>
-                        {/* <!-- Modal --> */}
-                        {/* id="deleteModal" */}
-                        <div className="modal fade"  id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div className="modal-dialog" role="document">
-                                <div className="modal-content">
-                                    <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Are you sure you want to delete this task?</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    {/* <div className="modal-body">
-                                        ...
-                                    </div> */}
-                                    <div className="modal-footer">
-                                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button data-dismiss="modal" onClick={deleteHandler} type="button" className="btn btn-danger">Confirm</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <button onClick={() => setModalShow(currentState => ({showPopup: true}))}className="trash-btn text-danger">
+                            <i className="fas fa-trash"></i>
+                        </button>
+
+                        <div>
+                            <Modal show={showPopup}>
+                            <Modal.Header closeButton onClick={handleDismiss}>
+                                <Modal.Title id="contained-modal-title-vcenter">
+                                    Delete Task
+                                </Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <p>Are you sure you want to delete this task?</p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={handleDismiss}>Cancel</Button>
+                                    <Button variant="danger" onClick={deleteHandler}>Confirm</Button>
+                                </Modal.Footer>
+                            </Modal>
                         </div>
 
-                        {/* <button onClick={deleteHandler} className="trash-btn text-danger"><i className="fas fa-trash"></i></button> */}
                     </td>
-
-                    {/* <td>
-                        <button onClick={completeHandler} className="complete-btn text-success"><i className="fas fa-check"></i></button>
-                    </td>
-                    <td>
-                        <button onClick={deleteHandler} className="trash-btn text-danger"><i className="fas fa-trash"></i></button>
-                    </td> */}
                 </tr>
             </div>
 

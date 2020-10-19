@@ -9,6 +9,26 @@ function Task_form(props) {
         props.setStatus(e.target.value)
     }
     // upon event
+    const SideProjectNameHandler = (e) => {
+        // console.log(e.target.value)
+        props.setSideProjectName(e.target.value)
+    }
+    const submitSideProjectHandler = (e) => {
+        // e.preventDefault is so that you dont click the button and go to another page
+        e.preventDefault()
+        props.setSideProjects([
+            // ... means append to previous items
+            ...props.sideProjects,
+            {
+                sideProjectText: props.sideProjectName,
+                // informal way of getting unique id
+                projectId: Math.random() * 1000
+            }
+        ])
+        // Reset inputTextbar
+        props.setSideProjectName("")
+    }
+
     const TaskNameHandler = (e) => {
         // console.log(e.target.value)
         props.setTaskName(e.target.value)
@@ -30,9 +50,9 @@ function Task_form(props) {
             {
                 text: props.taskName,
                 description: props.taskDescription,
-                priority:props.taskPriority,
+                priority: props.taskPriority,
                 date: date.toDateString(),
-                reminderDate: date.toDateString(),
+                reminderDate: reminderDate.toDateString(),
                 completed: false,
                 // informal way of getting unique id
                 id: Math.random() * 1000
@@ -45,6 +65,10 @@ function Task_form(props) {
 
     return (
         <div>
+            <button type="button" className="btn btn-info add-project-btn" data-toggle="modal" data-target="#projectModal">
+                Add Project
+                <i className="fas fa-plus add-icon"></i>
+            </button>
             <div className="btn-group project-buttons">
 
                 <div className="dropdown select">
@@ -53,23 +77,40 @@ function Task_form(props) {
                         <option value="completed">Completed</option>
                         <option value="inprogress">In Progress</option>
                     </select>
-
-                    {/* <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                </button>
-                    <div onChange={statusHandler} className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <option value="all" className="dropdown-item">All</option>
-                        <option value="completed" className="dropdown-item">Completed</option>
-                        <option value="in-progress" className="dropdown-item">In Progress</option>
-                    </div> */}
                 </div>
 
                 {/* <!-- Button trigger modal --> */}
-                <button type="button" className="btn btn-primary modal-btn" data-toggle="modal" data-target="#exampleModal">
+
+
+                <button type="button" className="btn btn-info modal-btn" data-toggle="modal" data-target="#exampleModal">
                     Add Task
-            </button>
+                </button>
 
             </div>
+            {/* <!-- Project Modal --> */}
+            <div className="modal fade" id="projectModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog" role="document">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">Add Project</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body mx-3">
+                            <div className="md-form mb-3">
+                                <label>Name</label>
+                                <input value={props.sideProjectName} onChange={SideProjectNameHandler} type="text" className="form-control" />
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button onClick={submitSideProjectHandler} data-dismiss="modal" type="button" className="btn btn-primary">Add Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* <!-- Modal --> */}
             <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog" role="document">

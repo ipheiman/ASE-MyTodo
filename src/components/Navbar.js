@@ -23,11 +23,11 @@ function Navbar() {
                         {/* <li className="nav-item active">
                             <a className="nav-link" href="/project"><i><AiIcons.AiFillFolder/></i>Project<span className="sr-only">(current)</span></a>
                         </li> */}
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <a className="nav-link" href="/project"><i><AiIcons.AiFillFolder/></i>Project<span className="sr-only">(current)</span></a>
-                        </li>
+                        </li> */}
                         <li className="nav-item active">
-                            <a className="nav-link" href="/task"><i><AiIcons.AiFillFolder/></i>Task<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/task"><i><AiIcons.AiFillFolder/></i>Project<span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="/timer"><i><RiIcons.RiTimer2Fill/></i>Timer<span className="sr-only">(current)</span></a>
