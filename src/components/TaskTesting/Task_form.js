@@ -140,6 +140,16 @@ function Task_form(props) {
                                 </select>
                             </div>
                             <div className="md-form mb-4">
+                                <label>Assign to</label>
+                                <select name="todos" className="filter-todo browser-default custom-select">
+                                    <option value="1"></option>
+                                    <option value="1">Gordon</option>
+                                    <option value="2">Joey</option>
+                                    <option value="3">Peter</option>
+                                    <option value="3">Mark</option>
+                                </select>
+                            </div>
+                            <div className="md-form mb-4">
                                 <label>Due Date</label>
                                 <br></br>
                                 <DatePicker
