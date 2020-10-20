@@ -32,8 +32,16 @@ function ViewProgress() {
             </h1>
             </header>
             <body>
-
-            <Dropdown size = {1} options={options} onChange={handleChange} value={defaultOption} placeholder="Select an option" />
+            <div  style={{"width": "200px", "margin-left":"80%", "margin-bottom":"50px"}}>
+            <div className="dropdown select">
+                    <select  className="filter-todo browser-default custom-select">
+                        <option value="Project 1">Project 1</option>
+                        <option value="Project 2">Project 2</option>
+                        <option value="Project 3">Project 3</option>
+                    </select>
+                </div>
+            {/* <Dropdown size = {1} options={options} onChange={handleChange} value={defaultOption} placeholder="Select an option" /> */}
+            </div>
 
             <LineChart />
 

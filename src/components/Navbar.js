@@ -33,7 +33,10 @@ function Navbar() {
                             <a className="nav-link" href="/timer"><i><RiIcons.RiTimer2Fill/></i>Timer<span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="/viewprogress"><i><BsIcons.BsFillBarChartFill/></i>View Progress<span className="sr-only">(current)</span></a>
+                            <a className="nav-link" href="/viewprogress"><i><BsIcons.BsFillBarChartFill/></i>Project Progress<span className="sr-only">(current)</span></a>
+                        </li>
+                        <li className="nav-item active">
+                            <a className="nav-link" href="/viewprogress"><i><BsIcons.BsFillBarChartFill/></i>Individual Progress<span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="/leaderboard"><i><FaIcons.FaMedal/></i>Leaderboard<span className="sr-only">(current)</span></a>

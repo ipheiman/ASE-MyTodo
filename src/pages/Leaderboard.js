@@ -10,28 +10,28 @@ function Leaderboard() {
             <div class="leaderboard container">
                 <h1>
 
-                    BEST EMPLOYEE OF SEPTEMBER 2020
+                    BEST EMPLOYEE OF OCTOBER 2020
 
                 </h1>
                 <ol>
                     <li>
-                        <mark>Heiman</mark>
+                        <mark>John</mark>
                         <small>315</small>
                     </li>
                     <li>
-                        <mark>Heiman</mark>
+                        <mark>Peter</mark>
                         <small>301</small>
                     </li>
                     <li>
-                        <mark>Heiman</mark>
+                        <mark>Mark</mark>
                         <small>292</small>
                     </li>
                     <li>
-                        <mark>Heiman</mark>
+                        <mark>Joey</mark>
                         <small>245</small>
                     </li>
                     <li>
-                        <mark>Heiman</mark>
+                        <mark>Gordon</mark>
                         <small>203</small>
                     </li>
                 </ol>

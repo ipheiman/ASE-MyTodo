@@ -76,7 +76,7 @@ function Task() {
     return (
         <div className="body">
             <div className="project-page">
-                <h1>Task</h1>
+                <h1>Project</h1>
                 <div className="project-todo">
                     <Task_form
                         //************ SIDE PROJECTS ************
