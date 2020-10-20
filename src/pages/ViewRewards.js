@@ -11,7 +11,17 @@ function ViewRewards() {
         <div className="rewards-page">
             <h1>Rewards</h1>
             <div class="container">
-
+            <div style={{ "width": "200px", "margin-left": "80%", "margin-bottom": "50px" }}>
+                    <div className="dropdown select">
+                        <label>Order by:</label>
+                        <select className="filter-todo browser-default custom-select">
+                            <option value="Project 1">Latest</option>
+                            <option value="Project 2">Food</option>
+                            <option value="Project 3">Shopping</option>
+                        </select>
+                    </div>
+                    {/* <Dropdown size = {1} options={options} onChange={handleChange} value={defaultOption} placeholder="Select an option" /> */}
+                </div>
                 <div class="row">
                     <div class="item col">
                         <a>
@@ -33,7 +43,7 @@ function ViewRewards() {
                         </a>
                         <div class="item-info">
                             <div>
-                                22 items available
+                                3 items available
                             </div>
                             <button class="btn btn-warning">Add to cart</button>
                         </div>
@@ -45,7 +55,7 @@ function ViewRewards() {
                         </a>
                         <div class="item-info">
                             <div>
-                                22 items available
+                                38 items available
                             </div>
                             <button class="btn btn-warning">Add to cart</button>
                         </div>
@@ -59,7 +69,7 @@ function ViewRewards() {
                         </a>
                         <div class="item-info">
                             <div>
-                                22 items available
+                                7 items available
                             </div>
                             <button class="btn btn-warning">Add to cart</button>
                         </div>
@@ -71,7 +81,7 @@ function ViewRewards() {
                         </a>
                         <div class="item-info">
                             <div>
-                                22 items available
+                                54 items available
                             </div>
                             <button class="btn btn-warning">Add to cart</button>
                         </div>
@@ -83,7 +93,7 @@ function ViewRewards() {
                         </a>
                         <div class="item-info">
                             <div>
-                                22 items available
+                                31 items available
                             </div>
                             <button class="btn btn-warning">Add to cart</button>
                         </div>

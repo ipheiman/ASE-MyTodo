@@ -12,7 +12,8 @@
 }
 .rewards-page p{
   color:black;
-  margin-left:30%;
+  font-size:20px;
+  margin-left:20%;
 }
 .rewards-page .item-info{
   display:flex;
@@ -22,6 +23,7 @@
 .rewards-page img{
   width: 350px;
   margin-bottom:10px;
+  border-radius: 10%;
 }
 /* PROJECT-TABLE */
 .project-buttons{
