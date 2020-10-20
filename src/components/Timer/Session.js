@@ -171,8 +171,8 @@ class Session extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <p>This timer will ring for 1 minute.</p>
-                        <p>Click on "Snoooze" for another 1 minute of ringing.</p>
-                        <p>Click on "Dismiss" to start the break interval.</p>
+                        <p>Click on "Snoooze" for another 5 minutes of interval before the timer rings again.</p>
+                        <p>Click on "Dismiss" to start the next interval.</p>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="info" onClick={this.handleSnooze}>Snooze</Button>
