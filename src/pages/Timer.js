@@ -10,8 +10,8 @@ class Timer extends Component {
         this.state = {
             // Default duration
             breakLength: 5,
-            sessionLength: 25, 
-            timerMinute: 25, 
+            sessionLength: 1, //25
+            timerMinute: 1, //25
             isPlay: false
         }
         this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this)
@@ -22,6 +22,14 @@ class Timer extends Component {
         this.onUpdateTimerMinute = this.onUpdateTimerMinute.bind(this)
         this.onResetTimer = this.onResetTimer.bind(this)
         this.onPlayTimer = this.onPlayTimer.bind(this)
+        this.onSnooze = this.onSnooze.bind(this)
+    }
+
+    onSnooze(){
+        this.setState({
+            //sessionLength: 2
+            timerMinute: 5
+        })
     }
     // Functions (need to bind)
     // Increase breaklength by 1
@@ -127,7 +135,8 @@ class Timer extends Component {
                         updateTimerMinute={this.onUpdateTimerMinute}
                         toggleInterval={this.onToggleMode}
                         resetTimer={this.onResetTimer}
-                        onPlayTimer={this.onPlayTimer} />
+                        onPlayTimer={this.onPlayTimer} 
+                        snooze={this.onSnooze}/>
                 </div>
 
             </div>

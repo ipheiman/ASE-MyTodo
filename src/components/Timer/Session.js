@@ -16,7 +16,8 @@ class Session extends Component {
             // need intervalId to use setInterval and clearInterval
             intervalId: 0,
             showForm: false, //to display the popup in between the intervals
-            timeoutId: 0 //to store the timeout id
+            timeoutId: 0, //to store the timeout id
+            isSnooze: false
         }
 
         this.play = this.play.bind(this)
@@ -27,6 +28,7 @@ class Session extends Component {
         this.startTimerAudio2 = this.startTimerAudio2.bind(this)
         this.stopTimerAudio = this.stopTimerAudio.bind(this)
         this.handleDismiss = this.handleDismiss.bind(this)
+        this.handleSnooze = this.handleSnooze.bind(this)
     }
 
     play() {
@@ -117,6 +119,17 @@ class Session extends Component {
         this.play();
     }
 
+    handleSnooze(){
+        this.stopTimerAudio();
+        this.setState({
+            isSession: !this.state.isSession,
+            showForm: false
+        })
+        this.props.snooze();
+        clearTimeout(this.state.timeoutId);
+        this.play();
+    }
+
     stop() { //when the stop button is pressed
         clearInterval(this.state.intervalId)
         this.props.onPlayTimer(false);
@@ -162,7 +175,7 @@ class Session extends Component {
                         <p>Click on "Dismiss" to start the break interval.</p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="info">Snooze</Button>
+                        <Button variant="info" onClick={this.handleSnooze}>Snooze</Button>
                         <Button variant="info" onClick={this.handleDismiss}>Dismiss</Button>
                     </Modal.Footer>
                 </Modal>
