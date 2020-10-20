@@ -6,6 +6,23 @@
   font-family: "Poppins", sans-serif;
  
 }
+/*INDIVIDUAL PROGRESS */
+.rewards-page .item{
+  margin-bottom:50px;
+}
+.rewards-page p{
+  color:black;
+  margin-left:30%;
+}
+.rewards-page .item-info{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rewards-page img{
+  width: 350px;
+  margin-bottom:10px;
+}
 /* PROJECT-TABLE */
 .project-buttons{
   margin-bottom:10px;
@@ -236,7 +253,7 @@ width: 999px;
 .timer p{
   color: #212529 !important
 }
-.homepage,.viewprogress, .project-page, .leaderboard-page, .timer header{
+.homepage,.viewprogress, .project-page, .leaderboard-page, .timer header,.rewards-page{
   margin-top:50px
 }
 .project-page h1{

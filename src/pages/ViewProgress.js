@@ -28,7 +28,7 @@ function ViewProgress() {
         <div className="viewprogress">
             <header>
             <h1>
-                View Progress
+                Project Progress
             </h1>
             </header>
             <body>

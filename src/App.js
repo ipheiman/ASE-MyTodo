@@ -6,7 +6,8 @@ import Login from './pages/Login'
 import Homepage from './pages/Homepage'
 import Leaderboard from './pages/Leaderboard'
 import Navbar from './components/Navbar'
-import RegistrationForm from './pages/RegistrationForm'
+import RegistrationForm from './pages/RegistrationForm';
+import ViewRewards from './pages/ViewRewards'
 import Project_test from './components/ProjectTesting/Project_test'
 import Task from './components/TaskTesting/Task'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -22,9 +23,10 @@ function App() {
           <Route path="/register" render={()=> <RegistrationForm setNavBarHidden={setNavBarHidden}/>}  />
           <Route path="/homepage" render={()=> <Homepage setNavBarHidden={setNavBarHidden}/>} />
           <Route path="/timer" component={Timer} />
+          <Route path="/viewrewards" component={ViewRewards} />
           <Route path="/viewprogress" component={ViewProgress} />
           <Route path="/leaderboard" component={Leaderboard} />
-          <Route path="/project" component={Project_test}/>
+          {/* <Route path="/project" component={Project_test}/> */}
           <Route path="/task" component={Task}/>
         </Switch>
       </BrowserRouter>
