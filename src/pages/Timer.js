@@ -10,8 +10,8 @@ class Timer extends Component {
         this.state = {
             // Default duration
             breakLength: 5,
-            sessionLength: 1, //25
-            timerMinute: 1, //25
+            sessionLength: 25,
+            timerMinute: 25,
             isPlay: false
         }
         this.onIncreaseBreakLength = this.onIncreaseBreakLength.bind(this)
