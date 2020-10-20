@@ -88,7 +88,7 @@ function Task() {
                         //************ TASKS ************
                         taskName={taskName}
                         setTaskName={setTaskName}
-                        taskDescriptio  n={taskDescription}
+                        taskDescription={taskDescription}
                         setTaskDescription={setTaskDescription}
                         taskPriority={taskPriority}
                         setTaskPriority={setTaskPriority}
