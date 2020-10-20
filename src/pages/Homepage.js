@@ -57,14 +57,14 @@ function Homepage(props) {
     }
 
     return (
-        <div>
+        <div className = "homepage">
             <header>
                 <h1>Welcome to MyToDo!</h1>
             </header>
             
             <div className="flexbox-container" width="400dp">
             <div className="task list">
-            <h2>Upcoming Tasks</h2>
+            <h2 className="upcoming-task-text">Upcoming Tasks</h2>
             <Task_listHome
                 tasks={tasks}
                 setTasks={setTasks}

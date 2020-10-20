@@ -1,5 +1,6 @@
 import React from 'react'
 import Clock from 'react-clock/dist/umd/Clock';
+import '../pages/Homepage.css'
 class ClockFunction extends React.Component {
 
     constructor() {
@@ -21,7 +22,7 @@ class ClockFunction extends React.Component {
         const { time } = this.state; // retrieve the time from state
 
         return (<div>
-            <h1>
+            <h1 className="clock-function">
                 {/* print the string prettily */}
                 {time.toLocaleTimeString()}
             </h1>

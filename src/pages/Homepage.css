@@ -1,4 +1,15 @@
 .flexbox-container {
     display: flex;
     flex-direction: row;
+    margin-left:50px;
+    margin-top:50px;
+}
+
+.upcoming-task-text{
+    margin-bottom:50px;
+}
+
+.clock-function{
+    margin-top:-20px;
+    padding-bottom: 60px;
 }
