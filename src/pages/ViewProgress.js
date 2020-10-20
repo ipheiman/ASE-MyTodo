@@ -15,6 +15,45 @@ import BarChart from "../components/DataVisualisation/BarChart"
 function ViewProgress() {
 
     const [ProjectId, setProjectId] = useState(0);
+    const options1 = {
+        legend: {
+            labels: {
+                 fontColor: 'black',
+                 fontSize:15,
+                }
+             },
+        labels: {
+            // This more specific font property overrides the global property
+            fontColor: 'black',
+            
+        },
+        title: {
+            display: true,
+            fontColor: 'black',
+            fontSize:15,
+            text: "Bar Chart"
+        },
+        scales: {
+            yAxes: [
+                {
+                    ticks: {
+                        min: 0,
+                        max: 6,
+                        stepSize: 1,
+                        fontSize:15,
+                        fontColor: 'black'
+                    }
+                }
+            ],
+            xAxes: [{
+                ticks:{
+                    fontColor: 'black',
+                    fontSize:15,
+                }
+            }]
+        },
+        maintainAspectRatio: false
+    }
 
     const data1 = { 
         labels: [
@@ -121,11 +160,11 @@ function ViewProgress() {
             {/* <LineChart data = {data1} /> */}
 
             <div style={{"height" : "50%", "width": "50%", "display": "inline-block"}}>
-            <Line data = {data[ProjectId]}/>
+            <Line data = {data[ProjectId]} options = {options1}/>
             </div>
 
             <div style={{"height" : "50%", "width": "50%","display": "inline-block"}}>
-        <Bar data = {data[ProjectId]}/>
+        <Bar data = {data[ProjectId]}  options = {options1}/>
         </div>
 
             </body>
