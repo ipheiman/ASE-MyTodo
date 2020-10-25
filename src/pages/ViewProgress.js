@@ -31,7 +31,7 @@ function ViewProgress() {
             display: true,
             fontColor: 'black',
             fontSize:15,
-            text: "Bar Chart"
+            // text: "Bar Chart"
         },
         scales: {
             yAxes: [
@@ -69,9 +69,9 @@ function ViewProgress() {
         datasets: [
             {
                 label: "Number of tasks completed",
-                data: [3 , 3, 0, 4,5, 7,8] ,
-                borderColor : ['#17A2B8'],
-                backgroundColor : ['#17A2B8'],
+                data: [3 , 3, 0, 4,5, 6,1] ,
+                borderColor : ['#e3f2fd'],
+                backgroundColor : ['#222'],
                 pointBackgroundColor : ['#e3f2fd'],
                 pointBorderColor : ['rgba(54,162,235,0,2)']
             
@@ -93,9 +93,9 @@ function ViewProgress() {
             datasets: [
                 {
                     label: "Number of tasks completed",
-                    data: [0 , 3, 0, 3,3, 2,8] ,
-                    borderColor : ['#17A2B8'],
-                    backgroundColor : ['#17A2B8'],
+                    data: [0 , 3, 0, 3,3, 2,6] ,
+                    borderColor : ['#e3f2fd'],
+                    backgroundColor : ['#222'],
                     pointBackgroundColor : ['#e3f2fd'],
                     pointBorderColor : ['rgba(54,162,235,0,2)']
                 
@@ -117,9 +117,9 @@ function ViewProgress() {
                 datasets: [
                     {
                         label: "Number of tasks completed",
-                        data: [4 , 9, 1, 4,5, 7,5] ,
-                        borderColor : ['#17A2B8'],
-                        backgroundColor : ['#17A2B8'],
+                        data: [4 , 2, 1, 4,5, 6,5] ,
+                        borderColor : ['#e3f2fd'],
+                        backgroundColor : ['#222'],
                         pointBackgroundColor : ['#e3f2fd'],
                         pointBorderColor : ['rgba(54,162,235,0,2)']
                     
@@ -143,7 +143,7 @@ function ViewProgress() {
         <div className="viewprogress">
             <header>
             <h1>
-                View Progress
+                Progress
             </h1>
             </header>
             <body>

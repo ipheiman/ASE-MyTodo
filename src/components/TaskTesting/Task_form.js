@@ -139,7 +139,7 @@ function Task_form(props) {
                                     <option value="3">3</option>
                                 </select>
                             </div>
-                            <div className="md-form mb-4">
+                            {/* <div className="md-form mb-4">
                                 <label>Assign to</label>
                                 <select name="todos" className="filter-todo browser-default custom-select">
                                     <option value="1"></option>
@@ -148,7 +148,7 @@ function Task_form(props) {
                                     <option value="3">Peter</option>
                                     <option value="3">Mark</option>
                                 </select>
-                            </div>
+                            </div> */}
                             <div className="md-form mb-4">
                                 <label>Due Date</label>
                                 <br></br>

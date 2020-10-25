@@ -59,7 +59,7 @@ function Homepage(props) {
     return (
         <div className = "homepage">
             <header>
-                <h1>Welcome to MyToDo!</h1>
+                <h1>Welcome to MyTodo!</h1>
             </header>
             
             <div className="flexbox-container" width="400dp">

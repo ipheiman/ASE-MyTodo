@@ -6,7 +6,7 @@ import Prize4 from '../images/ntuc10.jpg'
 import Prize5 from '../images/capitaland10.jpg'
 import Prize6 from '../images/burgerking.png'
 function ViewRewards() {
-
+// ALL IMAGES FROM GOOGLE AND NOT OWNED BY US //
     return (
         <div className="rewards-page">
             <h1>Rewards</h1>
