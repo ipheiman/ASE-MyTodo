@@ -1,3 +1,4 @@
+    // *********************API CONNECTION******************
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -41,6 +42,7 @@ const db = mysql.createConnection({
   database: "LoginSystem",
 });
 
+// I DONT KNOW IF NEED TO CHANGE THE PATH NAME FOR POST "REGISTER"
 app.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -60,6 +62,7 @@ app.post("/register", (req, res) => {
   });
 });
 
+// I DONT KNOW IF NEED TO CHANGE THE PATH NAME FOR GET "LOGIN"
 app.get("/login", (req, res) => {
   if (req.session.user) {
     res.send({ loggedIn: true, user: req.session.user });
@@ -68,6 +71,7 @@ app.get("/login", (req, res) => {
   }
 });
 
+// I DONT KNOW IF NEED TO CHANGE THE PATH NAME FOR POST "LOGIN"
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
