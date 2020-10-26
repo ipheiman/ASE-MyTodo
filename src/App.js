@@ -8,7 +8,7 @@ import Leaderboard from './pages/Leaderboard'
 import Navbar from './components/Navbar'
 import RegistrationForm from './pages/RegistrationForm';
 import ViewRewards from './pages/ViewRewards'
-import Project_test from './components/ProjectTesting/Project_test'
+import TestLogin from './pages/TestLogin';
 import Task from './components/TaskTesting/Task'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 function App() {
@@ -26,6 +26,7 @@ function App() {
           <Route path="/viewrewards" component={ViewRewards} />
           <Route path="/viewprogress" component={ViewProgress} />
           <Route path="/leaderboard" component={Leaderboard} />
+          <Route path="/testingLogin" component={TestLogin} />
           {/* <Route path="/project" component={Project_test}/> */}
           <Route path="/task" component={Task}/>
         </Switch>

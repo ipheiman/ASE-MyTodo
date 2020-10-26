@@ -255,7 +255,7 @@ width: 999px;
 .timer p{
   color: #212529 !important
 }
-.homepage,.viewprogress, .project-page, .leaderboard-page, .timer header,.rewards-page{
+.homepage,.viewprogress, .project-page, .leaderboard-page, .timer header,.rewards-page,.login,.registration{
   margin-top:50px
 }
 .project-page h1{
