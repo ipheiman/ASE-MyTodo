@@ -16,6 +16,7 @@ function ViewRewards() {
     const [itemModal, setItemModal] = useState(false) //Modal for insufficient items
     const [pointsRemoved, setPointsRemoved] = useState(0)
     const [userPoints, setUserPoints] = useState(20) //Number of user points
+    const[reward, setReward] = useState(0) //Actual reward being clicked
 
     const [rewards, setRewards] = useState({ //Number of items available
         reward1: 3,
@@ -43,18 +44,8 @@ function ViewRewards() {
         voucher6: "$9.90 Burger King voucher"
     })
 
-    // function handleRedeem(rewardNum){
-    //     if (rewardNum === 0){
-    //         console.log ("CANNOT REDEEM")
-    //     }
-    //     else{
-    //         //setReward1(rewardNum - 1)
-    //         console.log("NOT IN THE IF LOOP")
-    //         setButtonPressed(true);
-    //     }
-    // }
-
-    function checkAvailability(rewardNum, pointNum){
+    function checkAvailability(rewardNum, pointNum, reward){
+        setReward(reward)
         if (rewardNum === 0){
             setItemModal(true)
         }
@@ -79,6 +70,68 @@ function ViewRewards() {
         setUserPoints(userPoints - pointsRemoved)
         setPointsRemoved(0)
         setSuccessModal(false)
+        switch (reward){ //set number of items avaialable
+            case "reward1":
+                setRewards({
+                    reward1: rewards.reward1 - 1,
+                    reward2: rewards.reward2,
+                    reward3: rewards.reward3,
+                    reward4: rewards.reward4,
+                    reward5: rewards.reward5,
+                    reward6: rewards.reward6
+                })
+                return;
+            case "reward2":
+                setRewards({
+                    reward1: rewards.reward1,
+                    reward2: rewards.reward2 - 1,
+                    reward3: rewards.reward3,
+                    reward4: rewards.reward4,
+                    reward5: rewards.reward5,
+                    reward6: rewards.reward6
+                })
+                return;
+            case "reward3":
+                setRewards({
+                    reward1: rewards.reward1,
+                    reward2: rewards.reward2,
+                    reward3: rewards.reward3 - 1,
+                    reward4: rewards.reward4,
+                    reward5: rewards.reward5,
+                    reward6: rewards.reward6
+                })
+                return;
+            case "reward4":
+                setRewards({
+                    reward1: rewards.reward1,
+                    reward2: rewards.reward2,
+                    reward3: rewards.reward3,
+                    reward4: rewards.reward4 - 1,
+                    reward5: rewards.reward5,
+                    reward6: rewards.reward6
+                })
+                return;
+            case "reward5":
+                setRewards({
+                    reward1: rewards.reward1,
+                    reward2: rewards.reward2,
+                    reward3: rewards.reward3,
+                    reward4: rewards.reward4,
+                    reward5: rewards.reward5 - 1,
+                    reward6: rewards.reward6
+                })
+                return;
+            case "reward6":
+                setRewards({
+                    reward1: rewards.reward1,
+                    reward2: rewards.reward2,
+                    reward3: rewards.reward3,
+                    reward4: rewards.reward4,
+                    reward5: rewards.reward5,
+                    reward6: rewards.reward6 - 1
+                })
+                return;
+        }
     }
 
     return (
@@ -97,7 +150,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward1, points.point1)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward1, points.point1, "reward1")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -116,7 +169,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward2, points.point2)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward2, points.point2, "reward2")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -133,7 +186,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward3, points.point3)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward3, points.point3, "reward3")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -152,7 +205,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward4, points.point4)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward4, points.point4, "reward4")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -169,7 +222,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward5, points.point5)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward5, points.point5, "reward5")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -186,7 +239,7 @@ function ViewRewards() {
                     <div class="item col">
                         <div class="item info">
                             <p>
-                                <button onClick={() => checkAvailability(rewards.reward6, points.point6)} class="btn btn-warning">Redeem</button>
+                                <button onClick={() => checkAvailability(rewards.reward6, points.point6, "reward6")} class="btn btn-warning">Redeem</button>
                             </p>
                         </div>
                     </div>
@@ -196,7 +249,7 @@ function ViewRewards() {
             <Modal show={successModal}>
                 <Modal.Header closeButton onClick={handleDismiss}>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Redeem Rewards
+                    Redeem reward
                     </Modal.Title>
                 </Modal.Header>
             <Modal.Body>
