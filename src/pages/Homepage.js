@@ -7,6 +7,10 @@ import Task_listHome from '../components/TaskTesting/Task_listHome';
 import './Homepage.css'
 import Task_form from '../components/TaskTesting/Task_form';
 function Homepage(props) {
+    // UserRewards
+    const [userRewards, setUserRewards] = useState(
+        localStorage.getItem("userRewards")
+    )
     const [date, setValue] = useState(new Date());
     const [value, setTimeValue] = useState(new Date());
     const [taskName, setTaskName] = useState("")
@@ -19,26 +23,27 @@ function Homepage(props) {
     const [filteredTasks, setFilteredTasks] = useState([])
     useEffect(() => {
         getLocalTasks()
+        getLocalUserRewards()
     }, [])
 
     useEffect(() => {
         filterHandler()
         saveLocalTasks()
-    }, [tasks,status])
+    }, [tasks, status])
     const filterHandler = () => {
-         setFilteredTasks(tasks.filter(task => task.completed === false))
+        setFilteredTasks(tasks.filter(task => task.completed === false))
 
-        }
+    }
     useEffect(() => {
         const interval = setInterval(
-          () => setTimeValue(new Date()),
-          1000
+            () => setTimeValue(new Date()),
+            1000
         );
-    
+
         return () => {
-          clearInterval(interval);
+            clearInterval(interval);
         }
-      }, []);
+    }, []);
     props.setNavBarHidden(false)
 
     // Save to local
@@ -55,29 +60,79 @@ function Homepage(props) {
             setTasks(taskLocal)
         }
     }
+    // Get userRewards from local
+    const getLocalUserRewards = () => {
+        let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
+        setUserRewards(userRewardsLocal)
+    }
+
 
     return (
-        <div className = "homepage">
+        <div className="homepage">
             <header>
                 <h1>Welcome to MyTodo!</h1>
             </header>
-            
+
             <div className="flexbox-container" width="400dp">
-            <div className="task list">
-            <h2 className="upcoming-task-text">Upcoming Tasks</h2>
-            <Task_listHome
-                tasks={tasks}
-                setTasks={setTasks}
-                filteredTasks={filteredTasks}/>
+                <div className="task list">
+                    <h2 className="upcoming-task-text">Upcoming Tasks</h2>
+                    <Task_listHome
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        filteredTasks={filteredTasks} />
+                </div>
+                <div className="rewards-table">
+                    <h2 className="upcoming-task-text">My Rewards</h2>
+                    <table className="task-tablehome" >
+                        <thead className="text-center" width="15%">
+                            <tr >
+                                <th scope="col">Reward Name</th>
+                                <th scope="col" >Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {userRewards.userReward1 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$5 Pezzo voucher</td>
+                                    <td>{userRewards.userReward1}</td>
+                                </tr>}
+                            {userRewards.userReward2 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$10 Grab Food voucher</td>
+                                    <td>{userRewards.userReward2}</td>
+                                </tr>}
+                            {userRewards.userReward3 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$20 Food Panda voucher</td>
+                                    <td>{userRewards.userReward3}</td>
+                                </tr>}
+                            {userRewards.userReward4 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$10 Fair Price voucher</td>
+                                    <td>{userRewards.userReward4}</td>
+                                </tr>}
+                            {userRewards.userReward5 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$10 CapitaLand voucher</td>
+                                    <td>{userRewards.userReward5}</td>
+                                </tr>}
+                            {userRewards.userReward6 === 0 ? null :
+                                <tr className="text-center" >
+                                    <td>$9.90 Burger King voucher</td>
+                                    <td>{userRewards.userReward6}</td>
+                                </tr>}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div className="clock-calendar">
+                    <ClockFunction />
+                    <Calendar
+                        onChange={setValue}
+                        value={date}
+                    />
+                </div>
             </div>
-            <div className="clock-calendar">
-                <ClockFunction/>
-                <Calendar
-                    onChange={setValue}
-                    value={date}
-                />
-            </div>
-        </div>
         </div>
     )
 }

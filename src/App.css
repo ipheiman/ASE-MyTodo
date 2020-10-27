@@ -115,6 +115,15 @@ width: 999px;
 .pillIcon{
   margin-left:30px;
 }
+
+.task{
+  position: absolute;
+}
+
+.rewards-table{
+  position: relative;
+  top: 315px;
+}
 .task-table{
   overflow:auto; 
   max-height:400px;
@@ -145,13 +154,13 @@ width: 999px;
 } 
 
 .task-tablehome{
-
-
-  max-height:400px;
-  min-height:400px;
+  overflow:auto;
+  overflow-x:hidden;
+  max-height:200px;
+  /* min-height:400px; */
   /* margin-left:50px; */
   table-layout: fixed;
-  width: 400px;
+  width: 630px;
   padding-left: 50px;
 }
 .task-tablehome th{
@@ -209,7 +218,7 @@ width: 999px;
 /* CLOCK */
 .clock-calendar{
   margin-top:30px;
-  margin-left:40%
+  margin-left:20%
 }
 .clock{
   margin-bottom:30px;
