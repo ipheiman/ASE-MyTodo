@@ -1,22 +1,23 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import Prize1 from '../images/pezzo5.jpg'
 import Prize2 from '../images/grab10.png'
 import Prize3 from '../images/panda20.jpg'
 import Prize4 from '../images/ntuc10.jpg'
 import Prize5 from '../images/capitaland10.jpg'
 import Prize6 from '../images/burgerking.png'
-import {Modal, Button} from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import EachReward from './EachReward'
 function ViewRewards() {
 
-// ALL IMAGES FROM GOOGLE AND NOT OWNED BY US //
+
+    // ALL IMAGES FROM GOOGLE AND NOT OWNED BY US //
 
     const [successModal, setSuccessModal] = useState(false) //Modal for a redemption
     const [pointsModal, setPointsModal] = useState(false) //Modal for insufficient points
     const [itemModal, setItemModal] = useState(false) //Modal for insufficient items
     const [pointsRemoved, setPointsRemoved] = useState(0)
-    const [userPoints, setUserPoints] = useState(20) //Number of user points
-    const[reward, setReward] = useState(0) //Actual reward being clicked
+    const [userPoints, setUserPoints] = useState(50) //Number of user points
+    const [reward, setReward] = useState(0) //Actual reward being clicked
 
     const [rewards, setRewards] = useState({ //Number of items available
         reward1: 3,
@@ -44,33 +45,45 @@ function ViewRewards() {
         voucher6: "$9.90 Burger King voucher"
     })
 
-    function checkAvailability(rewardNum, pointNum, reward){
+    // RUN ONCE WHEN APP STARTS
+    useEffect(() => {
+        getLocalUserPoints()
+        getLocalRewards()
+    }, [])
+
+    useEffect(() => {
+        saveLocalUserPoints()
+        saveLocalRewards()
+    }, [userPoints, rewards])
+
+
+    function checkAvailability(rewardNum, pointNum, reward) {
         setReward(reward)
-        if (rewardNum === 0){
+        if (rewardNum === 0) {
             setItemModal(true)
         }
-        else{
-            if (userPoints < pointNum){
+        else {
+            if (userPoints < pointNum) {
                 setPointsModal(true)
             }
-            else{
+            else {
                 setPointsRemoved(pointNum);
                 setSuccessModal(true)
             }
         }
     }
 
-    function handleDismiss(){
+    function handleDismiss() {
         setSuccessModal(false)
         setPointsModal(false)
         setItemModal(false)
     }
 
-    function handleConfirm(){
+    function handleConfirm() {
         setUserPoints(userPoints - pointsRemoved)
         setPointsRemoved(0)
         setSuccessModal(false)
-        switch (reward){ //set number of items avaialable
+        switch (reward) { //set number of items avaialable
             case "reward1":
                 setRewards({
                     reward1: rewards.reward1 - 1,
@@ -134,18 +147,45 @@ function ViewRewards() {
         }
     }
 
+
+    // Items to GET and SAVE to local: userpoints, rewards (#available)
+    // Save points to local
+    const saveLocalUserPoints = () => {
+        localStorage.setItem('userPoints', JSON.stringify(userPoints))
+    }
+
+    // Get points from local
+    const getLocalUserPoints = () => {
+        let userPointsLocal = JSON.parse(localStorage.getItem("userPoints"))
+        setUserPoints(userPointsLocal)
+    }
+
+    // Save rewards to local
+    const saveLocalRewards = () => {
+        localStorage.setItem('rewards', JSON.stringify(rewards))
+    }
+
+    // Get rewards from local
+    const getLocalRewards = () => {
+        let rewardsLocal = JSON.parse(localStorage.getItem("rewards"))
+        setRewards(rewardsLocal)
+    }
+
+
+
     return (
         <div className="rewards-page">
             <h1>Rewards</h1>
             <h5 padding-right="40px">Number of points: {userPoints}</h5>
+            
             <div class="row">
                 <div class="item col">
                     <div class="item info">
-                        <EachReward 
-                        img={Prize1}
-                        points={points.point1}
-                        itemsAvailable={rewards.reward1}
-                        vouchers={voucher.voucher1}/>
+                        <EachReward
+                            img={Prize1}
+                            points={points.point1}
+                            itemsAvailable={rewards.reward1}
+                            vouchers={voucher.voucher1} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -154,17 +194,17 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
 
-                    
+
+
                 </div>
                 <div class="item col">
                     <div class="item info">
                         <EachReward
-                        img={Prize2}
-                        points={points.point2}
-                        itemsAvailable={rewards.reward2}
-                        vouchers={voucher.voucher2}/>
+                            img={Prize2}
+                            points={points.point2}
+                            itemsAvailable={rewards.reward2}
+                            vouchers={voucher.voucher2} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -173,15 +213,15 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="item col">
                     <div class="item info">
                         <EachReward
-                        img={Prize3}
-                        points={points.point3}
-                        itemsAvailable={rewards.reward3}
-                        vouchers={voucher.voucher3}/>
+                            img={Prize3}
+                            points={points.point3}
+                            itemsAvailable={rewards.reward3}
+                            vouchers={voucher.voucher3} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -190,17 +230,17 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <div class="row">
                 <div class="item col">
                     <div class="item info">
-                    <EachReward
-                        img={Prize4}
-                        points={points.point4}
-                        itemsAvailable={rewards.reward4}
-                        vouchers={voucher.voucher4}/>
+                        <EachReward
+                            img={Prize4}
+                            points={points.point4}
+                            itemsAvailable={rewards.reward4}
+                            vouchers={voucher.voucher4} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -209,15 +249,15 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="item col">
                     <div class="item info">
-                    <EachReward
-                        img={Prize5}
-                        points={points.point5}
-                        itemsAvailable={rewards.reward5}
-                        vouchers={voucher.voucher5}/>
+                        <EachReward
+                            img={Prize5}
+                            points={points.point5}
+                            itemsAvailable={rewards.reward5}
+                            vouchers={voucher.voucher5} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -226,15 +266,15 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="item col">
                     <div class="item info">
-                    <EachReward
-                        img={Prize6}
-                        points={points.point6}
-                        itemsAvailable={rewards.reward6}
-                        vouchers={voucher.voucher6}/>
+                        <EachReward
+                            img={Prize6}
+                            points={points.point6}
+                            itemsAvailable={rewards.reward6}
+                            vouchers={voucher.voucher6} />
                     </div>
                     <div class="item col">
                         <div class="item info">
@@ -243,18 +283,18 @@ function ViewRewards() {
                             </p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <Modal show={successModal}>
                 <Modal.Header closeButton onClick={handleDismiss}>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Redeem reward
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Redeem reward
                     </Modal.Title>
                 </Modal.Header>
-            <Modal.Body>
-                <p>Would you like to confirm the redemption?</p>
-                <p>Points remaining would be: {userPoints - pointsRemoved}</p>
+                <Modal.Body>
+                    <p>Would you like to confirm the redemption?</p>
+                    <p>Points remaining would be: {userPoints - pointsRemoved}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={handleDismiss} variant="danger">Cancel</Button>
@@ -264,14 +304,14 @@ function ViewRewards() {
 
             <Modal show={pointsModal}>
                 <Modal.Header closeButton onClick={handleDismiss}>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Insufficient points
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Insufficient points
                     </Modal.Title>
                 </Modal.Header>
-            <Modal.Body>
-                <p>You have insufficient points currently.</p>
-                <p>Complete more tasks to gain more points.</p>
-                <p>Try again later :)</p>
+                <Modal.Body>
+                    <p>You have insufficient points currently.</p>
+                    <p>Complete more tasks to gain more points.</p>
+                    <p>Try again later :)</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={handleDismiss} variant="danger">Cancel</Button>
@@ -280,21 +320,21 @@ function ViewRewards() {
 
             <Modal show={itemModal}>
                 <Modal.Header closeButton onClick={handleDismiss}>
-                <Modal.Title id="contained-modal-title-vcenter">
-                    Insufficient items
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Insufficient items
                     </Modal.Title>
                 </Modal.Header>
-            <Modal.Body>
-                <p>Sorry! </p>
-                <p>This item is unavailable at the moment.</p>
-                <p>How about looking at some other rewards?</p>
+                <Modal.Body>
+                    <p>Sorry! </p>
+                    <p>This item is unavailable at the moment.</p>
+                    <p>How about looking at some other rewards?</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={handleDismiss} variant="danger">Cancel</Button>
                 </Modal.Footer>
             </Modal>
 
-            
+
         </div>
         // <div className="rewards-page">
         //     <h1>Rewards</h1>

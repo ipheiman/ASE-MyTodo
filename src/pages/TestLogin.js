@@ -46,7 +46,7 @@ function TestLogin() {
     }, []);
     return (
         <div className="App">
-          <div className="registration">
+          <div className="test-registration">
             <h1>Registration</h1>
             <label>Username</label>
             <input
@@ -65,7 +65,7 @@ function TestLogin() {
             <button className="btn btn-warning" onClick={register}> Register </button>
           </div>
     
-          <div className="login">
+          <div className="test-login">
             <h1>Login</h1>
             <input
               type="text"
