@@ -4,7 +4,7 @@ function EachReward(props){
 
     return(
         <div>
-        <div class="item col">
+        <div class="item">
             <img src={props.img}></img>
             <p>{props.vouchers}</p>
             <div class="item info">

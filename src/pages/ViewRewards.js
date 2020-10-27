@@ -12,6 +12,16 @@ function ViewRewards() {
 
     // ALL IMAGES FROM GOOGLE AND NOT OWNED BY US //
 
+    // user's rewards
+    const [userRewards, setUserRewards] = useState({ //Number of items available
+        userReward1: 0,
+        userReward2: 0,
+        userReward3: 0,
+        userReward4: 0,
+        userReward5: 0,
+        userReward6: 0
+    })
+    const [myRewardModal, setMyRewardModal] = useState(false) //Modal for view my rewards
     const [successModal, setSuccessModal] = useState(false) //Modal for a redemption
     const [pointsModal, setPointsModal] = useState(false) //Modal for insufficient points
     const [itemModal, setItemModal] = useState(false) //Modal for insufficient items
@@ -49,12 +59,14 @@ function ViewRewards() {
     useEffect(() => {
         getLocalUserPoints()
         getLocalRewards()
+        getLocalUserRewards()
     }, [])
 
     useEffect(() => {
         saveLocalUserPoints()
         saveLocalRewards()
-    }, [userPoints, rewards])
+        saveLocalUserRewards()
+    }, [userPoints, rewards, userRewards])
 
 
     function checkAvailability(rewardNum, pointNum, reward) {
@@ -73,10 +85,15 @@ function ViewRewards() {
         }
     }
 
+    function checkMyRewards(userRewards){
+        setMyRewardModal(true)
+    }
+
     function handleDismiss() {
         setSuccessModal(false)
         setPointsModal(false)
         setItemModal(false)
+        setMyRewardModal(false)
     }
 
     function handleConfirm() {
@@ -93,6 +110,14 @@ function ViewRewards() {
                     reward5: rewards.reward5,
                     reward6: rewards.reward6
                 })
+                setUserRewards({
+                    userReward1: userRewards.userReward1 + 1,
+                    userReward2: userRewards.userReward2,
+                    userReward3: userRewards.userReward3,
+                    userReward4: userRewards.userReward4,
+                    userReward5: userRewards.userReward5,
+                    userReward6: userRewards.userReward6
+                })
                 return;
             case "reward2":
                 setRewards({
@@ -102,6 +127,14 @@ function ViewRewards() {
                     reward4: rewards.reward4,
                     reward5: rewards.reward5,
                     reward6: rewards.reward6
+                })
+                setUserRewards({
+                    userReward1: userRewards.userReward1,
+                    userReward2: userRewards.userReward2 + 1,
+                    userReward3: userRewards.userReward3,
+                    userReward4: userRewards.userReward4,
+                    userReward5: userRewards.userReward5,
+                    userReward6: userRewards.userReward6
                 })
                 return;
             case "reward3":
@@ -113,6 +146,14 @@ function ViewRewards() {
                     reward5: rewards.reward5,
                     reward6: rewards.reward6
                 })
+                setUserRewards({
+                    userReward1: userRewards.userReward1,
+                    userReward2: userRewards.userReward2,
+                    userReward3: userRewards.userReward3 + 1,
+                    userReward4: userRewards.userReward4,
+                    userReward5: userRewards.userReward5,
+                    userReward6: userRewards.userReward6
+                })
                 return;
             case "reward4":
                 setRewards({
@@ -122,6 +163,14 @@ function ViewRewards() {
                     reward4: rewards.reward4 - 1,
                     reward5: rewards.reward5,
                     reward6: rewards.reward6
+                })
+                setUserRewards({
+                    userReward1: userRewards.userReward1,
+                    userReward2: userRewards.userReward2,
+                    userReward3: userRewards.userReward3,
+                    userReward4: userRewards.userReward4 + 1,
+                    userReward5: userRewards.userReward5,
+                    userReward6: userRewards.userReward6
                 })
                 return;
             case "reward5":
@@ -133,6 +182,14 @@ function ViewRewards() {
                     reward5: rewards.reward5 - 1,
                     reward6: rewards.reward6
                 })
+                setUserRewards({
+                    userReward1: userRewards.userReward1,
+                    userReward2: userRewards.userReward2,
+                    userReward3: userRewards.userReward3,
+                    userReward4: userRewards.userReward4,
+                    userReward5: userRewards.userReward5 + 1,
+                    userReward6: userRewards.userReward6
+                })
                 return;
             case "reward6":
                 setRewards({
@@ -142,6 +199,14 @@ function ViewRewards() {
                     reward4: rewards.reward4,
                     reward5: rewards.reward5,
                     reward6: rewards.reward6 - 1
+                })
+                setUserRewards({
+                    userReward1: userRewards.userReward1,
+                    userReward2: userRewards.userReward2,
+                    userReward3: userRewards.userReward3,
+                    userReward4: userRewards.userReward4,
+                    userReward5: userRewards.userReward5,
+                    userReward6: userRewards.userReward6 + 1
                 })
                 return;
         }
@@ -171,13 +236,31 @@ function ViewRewards() {
         setRewards(rewardsLocal)
     }
 
+    // Save userRewards to local
+    const saveLocalUserRewards = () => {
+        localStorage.setItem('userRewards', JSON.stringify(userRewards))
+    }
+
+    // Get userRewards from local
+    const getLocalUserRewards = () => {
+        let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
+        setUserRewards(userRewardsLocal)
+    }
+
 
 
     return (
-        <div className="rewards-page">
+        <div className="rewards-page container">
             <h1>Rewards</h1>
-            <h5 padding-right="40px">Number of points: {userPoints}</h5>
-            
+            <div className="myReward">
+                <button onClick={() => checkMyRewards(userRewards)} style={{ "float": "right" }} className="btn btn-warning">View My Rewards</button>
+                <h5 style={{ "padding-right": "80%", "font-weight": "bold" }}>Number of points: {userPoints}</h5>
+            </div>
+
+
+            <div>
+
+            </div>
             <div class="row">
                 <div class="item col">
                     <div class="item info">
@@ -286,6 +369,29 @@ function ViewRewards() {
 
                 </div>
             </div>
+            <Modal show={myRewardModal}>
+                <Modal.Header closeButton onClick={handleDismiss}>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        My Rewards
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Rewards you redeemed:</p>
+                    <p>{userRewards.userReward1 === 0 ? null: "$5 Pezzo voucher: " + userRewards.userReward1}</p>
+                    <p>{userRewards.userReward2 === 0 ? null: "$10 Grab Food voucher: " + userRewards.userReward2}</p>
+                    <p>{userRewards.userReward3 === 0 ? null: "$20 Food Panda voucher: " + userRewards.userReward3}</p>
+                    <p>{userRewards.userReward4 === 0 ? null: "$10 Fair Price voucher: " + userRewards.userReward4}</p>
+                    <p>{userRewards.userReward5 === 0 ? null: "$10 CapitaLand voucher: " + userRewards.userReward5}</p>
+                    <p>{userRewards.userReward6 === 0 ? null: "$9.90 Burger King voucher: " + userRewards.userReward6}</p>
+
+                    {/* <p>Points remaining would be: {userPoints - pointsRemoved}</p> */}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleDismiss} variant="secondary">Close</Button>
+                    <Button onClick={handleConfirm} variant="primary">Confirm</Button>
+                </Modal.Footer>
+            </Modal>
+
             <Modal show={successModal}>
                 <Modal.Header closeButton onClick={handleDismiss}>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -297,8 +403,8 @@ function ViewRewards() {
                     <p>Points remaining would be: {userPoints - pointsRemoved}</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleDismiss} variant="danger">Cancel</Button>
-                    <Button onClick={handleConfirm} variant="info">Confirm</Button>
+                    <Button onClick={handleDismiss} variant="secondary">Close</Button>
+                    <Button onClick={handleConfirm} variant="primary">Confirm</Button>
                 </Modal.Footer>
             </Modal>
 
@@ -314,7 +420,7 @@ function ViewRewards() {
                     <p>Try again later :)</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleDismiss} variant="danger">Cancel</Button>
+                    <Button onClick={handleDismiss} variant="secondary">Close</Button>
                 </Modal.Footer>
             </Modal>
 
@@ -330,7 +436,7 @@ function ViewRewards() {
                     <p>How about looking at some other rewards?</p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleDismiss} variant="danger">Cancel</Button>
+                    <Button onClick={handleDismiss} variant="secondary">Close</Button>
                 </Modal.Footer>
             </Modal>
 

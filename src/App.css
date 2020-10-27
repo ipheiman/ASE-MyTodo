@@ -8,13 +8,15 @@
 }
 /*INDIVIDUAL PROGRESS */
 .rewards-page .item{
-  margin-bottom:50px;
+  margin-bottom:20px;
 }
 .rewards-page p{
   color:black;
   font-size:20px;
   margin-left:20%;
 }
+
+
 .rewards-page .item-info{
   display:flex;
   justify-content: space-between;
@@ -32,6 +34,8 @@
   /* text-align:right !important; */
   float:right
 }
+
+
 
 .dropdown{
   margin-right:10px
