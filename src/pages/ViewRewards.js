@@ -23,6 +23,7 @@ function ViewRewards() {
     })
     const [myRewardModal, setMyRewardModal] = useState(false) //Modal for view my rewards
     const [successModal, setSuccessModal] = useState(false) //Modal for a redemption
+    const [confirmationModal, setConfirmationModal] = useState(false) //Modal for confirmation redeemed message
     const [pointsModal, setPointsModal] = useState(false) //Modal for insufficient points
     const [itemModal, setItemModal] = useState(false) //Modal for insufficient items
     const [pointsRemoved, setPointsRemoved] = useState(0)
@@ -81,6 +82,7 @@ function ViewRewards() {
             else {
                 setPointsRemoved(pointNum);
                 setSuccessModal(true)
+                // setConfirmationModal(true)
             }
         }
     }
@@ -91,6 +93,7 @@ function ViewRewards() {
 
     function handleDismiss() {
         setSuccessModal(false)
+        setConfirmationModal(false)
         setPointsModal(false)
         setItemModal(false)
         setMyRewardModal(false)
@@ -100,6 +103,7 @@ function ViewRewards() {
         setUserPoints(userPoints - pointsRemoved)
         setPointsRemoved(0)
         setSuccessModal(false)
+        setConfirmationModal(true)
         switch (reward) { //set number of items avaialable
             case "reward1":
                 setRewards({
@@ -376,7 +380,7 @@ function ViewRewards() {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Rewards you redeemed:</p>
+                    <p>Rewards you have redeemed:</p>
                     <p>{userRewards.userReward1 === 0 ? null: "$5 Pezzo voucher: " + userRewards.userReward1}</p>
                     <p>{userRewards.userReward2 === 0 ? null: "$10 Grab Food voucher: " + userRewards.userReward2}</p>
                     <p>{userRewards.userReward3 === 0 ? null: "$20 Food Panda voucher: " + userRewards.userReward3}</p>
@@ -404,6 +408,23 @@ function ViewRewards() {
                 <Modal.Footer>
                     <Button onClick={handleDismiss} variant="secondary">Close</Button>
                     <Button onClick={handleConfirm} variant="primary">Confirm</Button>
+                </Modal.Footer>
+            </Modal>
+
+            <Modal show={confirmationModal}>
+                <Modal.Header closeButton onClick={handleDismiss}>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        Successfully redeemed
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>You have successfully redeemed the voucher!</p>
+                    <p>The e-voucher will be sent to your email shortly.</p>
+                    <p>You may click on <b>View Rewards</b> to view your redeemed rewards.</p>
+                    {/* <p>You have {userPoints - pointsRemoved} points now.</p> */}
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleDismiss} variant="secondary">Close</Button>
                 </Modal.Footer>
             </Modal>
 
