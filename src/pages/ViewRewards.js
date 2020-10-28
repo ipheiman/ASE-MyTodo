@@ -388,7 +388,6 @@ function ViewRewards() {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button onClick={handleDismiss} variant="secondary">Close</Button>
-                    <Button onClick={handleConfirm} variant="primary">Confirm</Button>
                 </Modal.Footer>
             </Modal>
 
