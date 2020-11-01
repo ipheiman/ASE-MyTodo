@@ -7,6 +7,7 @@ import Prize5 from '../images/capitaland10.jpg'
 import Prize6 from '../images/burgerking.png'
 import { Modal, Button } from 'react-bootstrap'
 import EachReward from './EachReward'
+import Axios from "axios";
 function ViewRewards() {
 
 
@@ -27,8 +28,9 @@ function ViewRewards() {
     const [pointsModal, setPointsModal] = useState(false) //Modal for insufficient points
     const [itemModal, setItemModal] = useState(false) //Modal for insufficient items
     const [pointsRemoved, setPointsRemoved] = useState(0)
-    const [userPoints, setUserPoints] = useState(50) //Number of user points
     const [reward, setReward] = useState(0) //Actual reward being clicked
+    const [username, setUsername] = useState("");
+    const [userPoints, setUserPoints] = useState(20) //Number of user points
 
     const [rewards, setRewards] = useState({ //Number of items available
         reward1: 3,
@@ -70,9 +72,33 @@ function ViewRewards() {
     }, [userPoints, rewards, userRewards])
 
 
-    function checkAvailability(rewardNum, pointNum, reward) {
-        setReward(reward)
-        if (rewardNum === 0) {
+    
+
+    function getPoints(username){
+        console.log('this is the response1.');
+        var url = "/backend/user/"+username;
+        console.log(url);
+        Axios.get(url).then((response) => {
+      var points =response.data.point;
+      console.log('point', points)
+      return points;
+    }).catch(error=>{
+      console.log("Wrong username/password.")
+    });
+};
+    // function handleRedeem(rewardNum){
+    //     if (rewardNum === 0){
+    //         console.log ("CANNOT REDEEM")
+    //     }
+    //     else{
+    //         //setReward1(rewardNum - 1)
+    //         console.log("NOT IN THE IF LOOP")
+    //         setButtonPressed(true);
+    //     }
+    // }
+
+    function checkAvailability(rewardNum, pointNum){
+        if (rewardNum === 0){
             setItemModal(true)
         }
         else {

@@ -2,6 +2,11 @@ import React from 'react';
 import './TestLogin.css';
 import { useEffect, useState } from "react";
 import Axios from "axios";
+// Axios.defaults.headers.get['Accepts'] = 'application/json';
+// Axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:9000';
+// Axios.defaults.headers.common['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept';
+
+
 function TestLogin() {
     const [usernameReg, setUsernameReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
@@ -16,34 +21,29 @@ function TestLogin() {
     Axios.defaults.withCredentials = true;
 
     const register = () => {
-        Axios.post("http://localhost:3001/register", {
+            Axios.post("/backend/user", 
+            {
             username: usernameReg,
             password: passwordReg,
-        }).then((response) => {
-            console.log(response);
+      }
+        ).then((response) => {
+            console.log("User created");
+        }).catch(error=>{
+          console.log("user has been created before")
         });
     };
 
     const login = () => {
-        Axios.post("http://localhost:3001/login", {
-            username: username,
-            password: password,
-        }).then((response) => {
-            if (response.data.message) {
-                setLoginStatus(response.data.message);
-            } else {
-                setLoginStatus(response.data[0].username);
-            }
+            console.log('this is the response1.');
+            var url = "/backend/user/"+username+'/'+password;
+            console.log(url);
+            Axios.get(url).then((response) => {
+          console.log('Logged In')
+        }).catch(error=>{
+          console.log("Wrong username/password.")
         });
     };
 
-    useEffect(() => {
-        Axios.get("http://localhost:3001/login").then((response) => {
-            if (response.data.loggedIn == true) {
-                setLoginStatus(response.data.user[0].username);
-            }
-        });
-    }, []);
     return (
         <div className="App">
           <div className="test-registration">
