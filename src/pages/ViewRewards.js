@@ -87,7 +87,7 @@ function ViewRewards() {
         }
     }
 
-    function checkMyRewards(userRewards){
+    function checkMyRewards(userRewards) {
         setMyRewardModal(true)
     }
 
@@ -217,7 +217,7 @@ function ViewRewards() {
     }
 
 
-    // Items to GET and SAVE to local: userpoints, rewards (#available)
+    // Items to GET and SAVE to local: userpoints, rewards (#available), userRewards
     // Save points to local
     const saveLocalUserPoints = () => {
         localStorage.setItem('userPoints', JSON.stringify(userPoints))
@@ -225,8 +225,13 @@ function ViewRewards() {
 
     // Get points from local
     const getLocalUserPoints = () => {
-        let userPointsLocal = JSON.parse(localStorage.getItem("userPoints"))
-        setUserPoints(userPointsLocal)
+        if (localStorage.getItem('userPoints') == null) {
+            localStorage.setItem('userPoints', JSON.stringify([]))
+        }
+        else {
+            let userPointsLocal = JSON.parse(localStorage.getItem("userPoints"))
+            setUserPoints(userPointsLocal)
+        }
     }
 
     // Save rewards to local
@@ -236,8 +241,14 @@ function ViewRewards() {
 
     // Get rewards from local
     const getLocalRewards = () => {
-        let rewardsLocal = JSON.parse(localStorage.getItem("rewards"))
-        setRewards(rewardsLocal)
+        if (localStorage.getItem('rewards') == null) {
+            localStorage.setItem('rewards', JSON.stringify([]))
+        }
+        else {
+            let rewardsLocal = JSON.parse(localStorage.getItem("rewards"))
+            setRewards(rewardsLocal)
+        }
+
     }
 
     // Save userRewards to local
@@ -247,8 +258,13 @@ function ViewRewards() {
 
     // Get userRewards from local
     const getLocalUserRewards = () => {
-        let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
-        setUserRewards(userRewardsLocal)
+        if (localStorage.getItem('userRewards') == null) {
+            localStorage.setItem('userRewards', JSON.stringify([]))
+        }
+        else {
+            let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
+            setUserRewards(userRewardsLocal)
+        }
     }
 
 
@@ -381,12 +397,12 @@ function ViewRewards() {
                 </Modal.Header>
                 <Modal.Body>
                     <p>Rewards you have redeemed:</p>
-                    <p>{userRewards.userReward1 === 0 ? null: "$5 Pezzo voucher: " + userRewards.userReward1}</p>
-                    <p>{userRewards.userReward2 === 0 ? null: "$10 Grab Food voucher: " + userRewards.userReward2}</p>
-                    <p>{userRewards.userReward3 === 0 ? null: "$20 Food Panda voucher: " + userRewards.userReward3}</p>
-                    <p>{userRewards.userReward4 === 0 ? null: "$10 Fair Price voucher: " + userRewards.userReward4}</p>
-                    <p>{userRewards.userReward5 === 0 ? null: "$10 CapitaLand voucher: " + userRewards.userReward5}</p>
-                    <p>{userRewards.userReward6 === 0 ? null: "$9.90 Burger King voucher: " + userRewards.userReward6}</p>
+                    <p>{userRewards.userReward1 === 0 ? null : "$5 Pezzo voucher: " + userRewards.userReward1}</p>
+                    <p>{userRewards.userReward2 === 0 ? null : "$10 Grab Food voucher: " + userRewards.userReward2}</p>
+                    <p>{userRewards.userReward3 === 0 ? null : "$20 Food Panda voucher: " + userRewards.userReward3}</p>
+                    <p>{userRewards.userReward4 === 0 ? null : "$10 Fair Price voucher: " + userRewards.userReward4}</p>
+                    <p>{userRewards.userReward5 === 0 ? null : "$10 CapitaLand voucher: " + userRewards.userReward5}</p>
+                    <p>{userRewards.userReward6 === 0 ? null : "$9.90 Burger King voucher: " + userRewards.userReward6}</p>
 
                     {/* <p>Points remaining would be: {userPoints - pointsRemoved}</p> */}
                 </Modal.Body>

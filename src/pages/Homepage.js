@@ -8,9 +8,14 @@ import './Homepage.css'
 import Task_form from '../components/TaskTesting/Task_form';
 function Homepage(props) {
     // UserRewards
-    const [userRewards, setUserRewards] = useState(
-        localStorage.getItem("userRewards")
-    )
+    const [userRewards, setUserRewards] = useState({ //Number of items available
+        userReward1: 0,
+        userReward2: 0,
+        userReward3: 0,
+        userReward4: 0,
+        userReward5: 0,
+        userReward6: 0
+    })
     const [date, setValue] = useState(new Date());
     const [value, setTimeValue] = useState(new Date());
     const [taskName, setTaskName] = useState("")
@@ -29,7 +34,8 @@ function Homepage(props) {
     useEffect(() => {
         filterHandler()
         saveLocalTasks()
-    }, [tasks, status])
+        saveLocalUserRewards()
+    }, [tasks, status, userRewards])
     const filterHandler = () => {
         setFilteredTasks(tasks.filter(task => task.completed === false))
 
@@ -62,9 +68,21 @@ function Homepage(props) {
     }
     // Get userRewards from local
     const getLocalUserRewards = () => {
-        let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
-        setUserRewards(userRewardsLocal)
+        if (localStorage.getItem('userRewards') == null) {
+            localStorage.setItem('userRewards', JSON.stringify([]))
+        }
+        else {
+            let userRewardsLocal = JSON.parse(localStorage.getItem("userRewards"))
+            setUserRewards(userRewardsLocal)
+        }
+
     }
+
+    // Save userRewards to local
+    const saveLocalUserRewards = () => {
+        localStorage.setItem('userRewards', JSON.stringify(userRewards))
+    }
+
 
 
     return (
