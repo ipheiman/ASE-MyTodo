@@ -1,5 +1,6 @@
 import React from 'react';
 import './TestLogin.css';
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import Axios from "axios";
 // Axios.defaults.headers.get['Accepts'] = 'application/json';
@@ -15,6 +16,7 @@ function TestLogin() {
     const [password, setPassword] = useState("");
 
     const [loginStatus, setLoginStatus] = useState("");
+    const [regStatus, setRegStatus] = useState("");
 
 
     // *********************API CONNECTION******************
@@ -27,9 +29,9 @@ function TestLogin() {
             password: passwordReg,
       }
         ).then((response) => {
-            console.log("User created");
+          setRegStatus("User has been created.")
         }).catch(error=>{
-          console.log("user has been created before")
+          setRegStatus("User has been created before.")
         });
     };
 
@@ -38,12 +40,14 @@ function TestLogin() {
             var url = "/backend/user/"+username+'/'+password;
             console.log(url);
             Axios.get(url).then((response) => {
-          console.log('Logged In')
+          console.log('True')
+          setLoginStatus('True')
         }).catch(error=>{
-          console.log("Wrong username/password.")
+          setLoginStatus("Wrong username/password.")
         });
     };
 
+    
     return (
         <div className="App">
           <div className="test-registration">
@@ -64,7 +68,7 @@ function TestLogin() {
             />
             <button className="btn btn-warning" onClick={register}> Register </button>
           </div>
-    
+          <h1>{regStatus}</h1>
           <div className="test-login">
             <h1>Login</h1>
             <input
@@ -81,13 +85,13 @@ function TestLogin() {
                 setPassword(e.target.value);
               }}
             />
-            <button className="btn btn-warning" onClick={login}> Login </button>
+                <button className="btn btn-warning" onClick={login}> Login </button>
+
           </div>
     
           <h1>{loginStatus}</h1>
         </div>
       );
-    
 }
 
 export default TestLogin
