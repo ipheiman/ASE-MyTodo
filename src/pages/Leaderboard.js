@@ -12,7 +12,7 @@ function Leaderboard() {
             <div class="leaderboard container">
                 <h1>
 
-                    BEST EMPLOYEE OF OCTOBER 2020
+                    {/* BEST EMPLOYEE OF OCTOBER 2020 */}
 
                 </h1>
                 <ol>
