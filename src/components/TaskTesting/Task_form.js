@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-date-picker';
+import Axios from "axios";
 function Task_form(props) {
     const [date, setDate] = useState(new Date());
     const [reminderDate, setReminderDate] = useState(new Date());
@@ -16,6 +17,7 @@ function Task_form(props) {
     const submitSideProjectHandler = (e) => {
         // e.preventDefault is so that you dont click the button and go to another page
         e.preventDefault()
+        console.log(props)
         props.setSideProjects([
             // ... means append to previous items
             ...props.sideProjects,
@@ -26,8 +28,42 @@ function Task_form(props) {
             }
         ])
         // Reset inputTextbar
-        props.setSideProjectName("")
+        props.setSideProjectName("testing")
     }
+
+    
+    const addProjectAPI = () => {
+        Axios.post("/backend/project", 
+        {
+         name: props.sideProjectName
+        // password: passwordReg,
+  }
+    ).then((response) => {
+        console.log("Project created");
+    }).catch(error=>{
+    });
+}
+
+const getProjectAPI = (e) => {
+    e.preventDefault()
+    Axios.get("/backend/project").then((response) => {
+    console.log(response.data.projects)
+    props.setSideProjects([])
+    for (var i = 0;i<response.data.projects.length;i++){
+        console.log(response.data.projects[i].name)
+        props.setSideProjects([...props.sideProjects,
+            {
+                sideProjectText: response.data.projects[2].name,
+                // informal way of getting unique id
+                projectId: Math.random() * 1000
+            }])
+            console.log(props.sideProjects)
+    }
+
+}).catch(error=>{
+    console.log(error)
+});
+}
 
     const TaskNameHandler = (e) => {
         // console.log(e.target.value)
@@ -105,7 +141,8 @@ function Task_form(props) {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button onClick={submitSideProjectHandler} data-dismiss="modal" type="button" className="btn btn-primary">Add Project</button>
+                            <button onClick={getProjectAPI} data-dismiss="modal" type="button" className="btn btn-primary">Add Project</button>
+                            {/* <button onClick={submitSideProjectHandler} data-dismiss="modal" type="button" className="btn btn-primary">Add Project</button> */}
                         </div>
                     </div>
                 </div>
