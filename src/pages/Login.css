@@ -1,17 +1,15 @@
-
-
-
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
-body, html {
-	height: 100%;
-	font-family: "Poppins", sans-serif, sans-serif;
+body,
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif, sans-serif;
 }
 
 /* TICK ICON */
-.formSuccess #tick-icon{
-  padding-left: 50% ;
+.formSuccess #tick-icon {
+  padding-left: 50%;
   font-size: 5rem;
-  color: #34a751
+  color: #34a751;
 }
 
 /* ERROR MESSAGE */
@@ -19,53 +17,58 @@ body, html {
   font-size: 0.8rem;
   color: #f00e0e;
   margin-bottom: 0.5rem;
-  margin-top:-0.5rem
+  margin-top: -0.5rem;
 }
 /*---------------------------------------------*/
 a {
-	font-family: "Poppins", sans-serif;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 0px;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
 
 a:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
-  color: #2C6896;
+  text-decoration: none;
+  color: #2c6896;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 p {
-	font-family: "Poppins", sans-serif;
-	font-size: 14px;
-	/* line-height: 1.7; */
-	color: #666666;
-	margin: 0px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  /* line-height: 1.7; */
+  color: #666666;
+  margin: 0px;
 }
 
-ul, li {
-	margin: 0px;
-	list-style-type: none;
+ul,
+li {
+  margin: 0px;
+  list-style-type: none;
 }
-
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
@@ -73,19 +76,36 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #8f8fa1;}
-input:-moz-placeholder { color: #8f8fa1;}
-input::-moz-placeholder { color: #8f8fa1;}
-input:-ms-input-placeholder { color: #8f8fa1;}
+input::-webkit-input-placeholder {
+  color: #8f8fa1;
+}
+input:-moz-placeholder {
+  color: #8f8fa1;
+}
+input::-moz-placeholder {
+  color: #8f8fa1;
+}
+input:-ms-input-placeholder {
+  color: #8f8fa1;
+}
 
-textarea::-webkit-input-placeholder { color: #8f8fa1;}
-textarea:-moz-placeholder { color: #8f8fa1;}
-textarea::-moz-placeholder { color: #8f8fa1;}
-textarea:-ms-input-placeholder { color: #8f8fa1;}
+textarea::-webkit-input-placeholder {
+  color: #8f8fa1;
+}
+textarea:-moz-placeholder {
+  color: #8f8fa1;
+}
+textarea::-moz-placeholder {
+  color: #8f8fa1;
+}
+textarea:-ms-input-placeholder {
+  color: #8f8fa1;
+}
 
 label {
   display: block;
@@ -94,30 +114,27 @@ label {
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+  outline: none !important;
+  border: none;
+  background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+  border: none !important;
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  color: #5DA2D5;
+  color: #5da2d5;
   line-height: 1.4;
 }
-
-
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -128,7 +145,8 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  float: right;
+  width: 50%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -139,21 +157,38 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-color: #ECECEC;
-  
+  background-color: #ececec;
+
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;;
+  background-repeat: no-repeat;
 }
+.container-register100 {
+  float: left;
+  width: 50%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #ececec;
 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
 .wrap-login100 {
   width: 390px;
-  background: #ECECEC;
+  background: #ececec;
   border-radius: 10px;
   position: relative;
 }
-
 
 /*==================================================================
 [ Form ]*/
@@ -174,8 +209,6 @@ iframe {
   display: block;
 }
 
-
-
 /*------------------------------------------------------------------
 [ Input ]*/
 
@@ -187,11 +220,10 @@ iframe {
   border-radius: 3px;
 }
 
-
 /*---------------------------------------------*/
 .input100 {
   font-family: "Poppins", sans-serif;
-  color: #2C6896;
+  color: #2c6896;
   line-height: 1.2;
   font-size: 18px;
 
@@ -212,7 +244,7 @@ iframe {
   top: -1px;
   left: -1px;
   pointer-events: none;
-  border: 1px solid #5DA2D5;
+  border: 1px solid #5da2d5;
   border-radius: 3px;
 
   visibility: hidden;
@@ -252,7 +284,6 @@ iframe {
   transform: scale(1);
 }
 
-
 /*==================================================================
 [ Restyle Checkbox ]*/
 
@@ -291,7 +322,7 @@ iframe {
   height: 18px;
   border-radius: 3px;
   background: #fff;
-  border: 2px solid #5DA2D5;
+  border: 2px solid #5da2d5;
   left: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -302,9 +333,8 @@ iframe {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #5DA2D5;
+  color: #5da2d5;
 }
-
 
 /*------------------------------------------------------------------
 [ Button ]*/
@@ -335,7 +365,7 @@ iframe {
   padding: 0 20px;
   width: 100%;
   height: 62px;
-  background-color: #5DA2D5;
+  background-color: #5da2d5;
   border-radius: 3px;
 
   -webkit-transition: all 0.4s;
@@ -345,9 +375,8 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #2C6896;
+  background-color: #2c6896;
 }
-
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -415,7 +444,6 @@ iframe {
     opacity: 1;
   }
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/

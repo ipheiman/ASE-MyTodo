@@ -41,9 +41,9 @@ function Navbar() {
                         <li className="nav-item active">
                             <a className="nav-link" href="/leaderboard"><i><FaIcons.FaMedal/></i>Leaderboard<span className="sr-only">(current)</span></a>
                         </li>
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             <a className="nav-link" href="/testingLogin"><i></i>TestLogin<span className="sr-only">(current)</span></a>
-                        </li>
+                        </li> */}
                     </ul>
                     <ul className="navbar-nav ml-auto">
                             <li className="nav-item active logout-btn">

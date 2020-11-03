@@ -19,14 +19,14 @@ function App() {
       <BrowserRouter>
       { (isNavBarHidden) ? null : <Navbar/>}
         <Switch>
-          <Route exact path="/" render={()=> <Login setNavBarHidden={setNavBarHidden}/>} />
+          <Route exact path="/" render={()=> <TestLogin setNavBarHidden={setNavBarHidden}/>} />
           <Route path="/register" render={()=> <RegistrationForm setNavBarHidden={setNavBarHidden}/>}  />
           <Route path="/homepage" render={()=> <Homepage setNavBarHidden={setNavBarHidden}/>} />
           <Route path="/timer" component={Timer} />
           <Route path="/viewrewards" component={ViewRewards} />
           <Route path="/viewprogress" component={ViewProgress} />
           <Route path="/leaderboard" component={Leaderboard} />
-          <Route path="/testingLogin" component={TestLogin} />
+          {/* <Route path="/testingLogin" component={TestLogin} /> */}
           {/* <Route path="/project" component={Project_test}/> */}
           <Route path="/task" component={Task}/>
         </Switch>
