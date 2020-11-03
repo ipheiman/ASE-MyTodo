@@ -159,12 +159,12 @@ function ViewProgress() {
 
             {/* <LineChart data = {data1} /> */}
 
-            <div style={{"height" : "50%", "width": "50%", "display": "inline-block"}}>
+            <div style={{"height" : "500px", "width": "50%", "display": "inline-block"}}>
             <Line data = {data[ProjectId]} options = {options1}/>
             </div>
 
-            <div style={{"height" : "50%", "width": "50%","display": "inline-block"}}>
-        <Bar data = {data[ProjectId]}  options = {options1}/>
+            <div style={{"height" : "500px", "width": "50%","display": "inline-block"}}>
+            <Bar data = {data[ProjectId]}  options = {options1}/>
         </div>
 
             </body>

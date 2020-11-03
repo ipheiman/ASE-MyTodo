@@ -18,7 +18,7 @@ body {
   top: 90%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -122%);
   width: 800px;
   height: 800px;
   /* background: -webkit-linear-gradient(top, #17a2b8, #424f72);
@@ -30,7 +30,7 @@ body {
 .leaderboard h1 {
   font-size: 22px;
   color: #222;
-  padding: 12px 13px 18px;
+  padding: 30px 13px 18px;
 }
 .leaderboard h1 svg {
   width: 25px;
@@ -197,6 +197,3 @@ body {
   -webkit-transition: all 0.35s ease-in-out;
   transition: all 0.35s ease-in-out;
 }
-
-
-
