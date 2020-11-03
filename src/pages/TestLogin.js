@@ -1,6 +1,6 @@
 import React from 'react';
 import './TestLogin.css';
-import { Link } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import Axios from "axios";
 // Axios.defaults.headers.get['Accepts'] = 'application/json';
@@ -47,7 +47,7 @@ function TestLogin() {
         });
     };
 
-    
+    if (loginStatus !== 'True'){
     return (
         <div className="App">
           <div className="test-registration">
@@ -92,6 +92,14 @@ function TestLogin() {
           <h1>{loginStatus}</h1>
         </div>
       );
+    }
+    else{
+      return(
+        <Route>
+          {loginStatus ==='True' ? <Redirect to="/homepage" />: undefined}
+        </Route>
+      );
+    }
 }
 
 export default TestLogin
